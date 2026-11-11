@@ -1,0 +1,75 @@
+a: yes	OK Map{a<String>=true<Boolean>}
+a: no	OK Map{a<String>=false<Boolean>}
+a: on	OK Map{a<String>=true<Boolean>}
+a: off	OK Map{a<String>=false<Boolean>}
+a: y	OK Map{a<String>=y<String>}
+a: n	OK Map{a<String>=n<String>}
+a: Y	OK Map{a<String>=Y<String>}
+a: Yes	OK Map{a<String>=true<Boolean>}
+a: YES	OK Map{a<String>=true<Boolean>}
+a: NO	OK Map{a<String>=false<Boolean>}
+a: On	OK Map{a<String>=true<Boolean>}
+a: OFF	OK Map{a<String>=false<Boolean>}
+a: true	OK Map{a<String>=true<Boolean>}
+a: True	OK Map{a<String>=true<Boolean>}
+a: TRUE	OK Map{a<String>=true<Boolean>}
+a: false	OK Map{a<String>=false<Boolean>}
+a: False	OK Map{a<String>=false<Boolean>}
+a: ~	OK Map{a<String>=null}
+a: null	OK Map{a<String>=null}
+a: Null	OK Map{a<String>=null}
+a: NULL	OK Map{a<String>=null}
+a: (empty value)	OK Map{a<String>=null}
+a: 0755	OK Map{a<String>=493<Integer>}
+a: 0o755	OK Map{a<String>=0o755<String>}
+a: 0x1F	OK Map{a<String>=31<Integer>}
+a: -0x1F	OK Map{a<String>=-31<Integer>}
+a: 0b1010	OK Map{a<String>=10<Integer>}
+a: 1_000	OK Map{a<String>=1000<Integer>}
+a: 1_000.5	OK Map{a<String>=1000.5<Double>}
+a: +12	OK Map{a<String>=12<Integer>}
+a: -0	OK Map{a<String>=0<Integer>}
+a: 007	OK Map{a<String>=7<Integer>}
+a: 08	OK Map{a<String>=08<String>}
+a: 09.5	OK Map{a<String>=9.5<Double>}
+a: 1e3	OK Map{a<String>=1000.0<Double>}
+a: 1.5	OK Map{a<String>=1.5<Double>}
+a: .5	OK Map{a<String>=0.5<Double>}
+a: 6.8523015e+5	OK Map{a<String>=685230.15<Double>}
+a: 1:30	OK Map{a<String>=1:30<String>}
+a: 190:20:30	OK Map{a<String>=190:20:30<String>}
+a: 190:20:30.15	ERR InvalidInputException
+a: .inf	ERR InvalidInputException
+a: -.inf	ERR InvalidInputException
+a: .NaN	ERR InvalidInputException
+a: 2001-12-14	OK Map{a<String>=2001-12-14<String>}
+a: 2001-12-14t21:59:43.10-05:00	OK Map{a<String>=2001-12-14t21:59:43.10-05:00<String>}
+a: <<	OK Map{a<String>=<<<String>}
+a: =	OK Map{a<String>==<String>}
+a: 'yes'	OK Map{a<String>=yes<String>}
+a: "yes"	OK Map{a<String>=yes<String>}
+a: '0755'	OK Map{a<String>=0755<String>}
+a: "123"	OK Map{a<String>=123<String>}
+a: !!str 123	OK Map{a<String>=123<String>}
+a: !!int "12"	OK Map{a<String>=12<Integer>}
+a: !!bool yes	OK Map{a<String>=true<Boolean>}
+a: !!float 1	OK Map{a<String>=1.0<Double>}
+a: !!null x	OK Map{a<String>=null}
+a: !!binary aGVsbG8=	OK Map{a<String>=byte[5,hash=127791473]}
+a: |\\n  yes (literal block)	OK Map{a<String>=yes<String>}
+a: >\\n  yes\\n  no (folded)	OK Map{a<String>=yes no\n<String>}
+key yes: 1	OK Map{yes<String>=1<Integer>}
+key 1: a	OK Map{1<String>=a<String>}
+key ~: b	OK Map{~<String>=b<String>}
+key 0x1F: c	OK Map{0x1F<String>=c<String>}
+flow seq [yes, 0x1F, ~]	OK List[true<Boolean>, 31<Integer>, null]
+nested map	OK Map{a<String>=Map{b<String>=Map{c<String>=true<Boolean>, d<String>=List[1<Integer>, true<Boolean>, 493<Integer>]}}}
+two documents	OK Map{a<String>=1<Integer>}
+anchor/alias	OK Map{x<String>=1<Integer>, y<String>=a<String>}
+merge key	OK Map{base<String>=Map{x<String>=1<Integer>}, d<String>=Map{<<<String>=b<String>, y<String>=2<Integer>}}
+duplicate keys	OK Map{a<String>=2<Integer>}
+doc is just yes	OK true<Boolean>
+empty document ""	ERR InvalidInputException
+1100-deep flow list	ERR InvalidInputException
+2000 aliases to one anchor	OK [22041 chars, sha256 c7cb86620fc71c87a1ee93ce98af81f4ecd2a67ee30aaa133a36718e095a9318]
+5MB string value	ERR InvalidInputException

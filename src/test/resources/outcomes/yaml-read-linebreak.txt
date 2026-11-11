@@ -1,0 +1,19 @@
+NEL key	ERR InvalidInputException
+BOM key	ERR InvalidInputException
+BOM+a key (doc start)	OK Map{a<String>=1<Integer>}
+BOM mid-doc key	OK Map{a<String>=1<Integer>, \ufeffb<String>=2<Integer>}
+sq NEL only	OK Map{k<String>= <String>}
+sq a NEL b	OK Map{k<String>=a b<String>}
+dq a NEL b	OK Map{k<String>=a b<String>}
+plain a NEL b	ERR InvalidInputException
+plain a LS b	ERR InvalidInputException
+plain a PS b	ERR InvalidInputException
+plain a NBSP b	OK Map{k<String>=a\u00a0b<String>}
+sq a LS b	OK Map{k<String>=a\u2028b<String>}
+sq a PS b	OK Map{k<String>=a\u2029b<String>}
+sq a NBSP b	OK Map{k<String>=a\u00a0b<String>}
+LS key	ERR InvalidInputException
+PS key	ERR InvalidInputException
+NBSP key	OK Map{\u00a0<String>=1<Integer>}
+space key	ERR InvalidInputException
+literal a NEL b	ERR InvalidInputException

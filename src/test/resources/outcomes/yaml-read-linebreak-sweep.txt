@@ -1,0 +1,68 @@
+U+0085 doc-start	OK Map{a<String>=1<Integer>}
+U+0085 key-start(2nd)	OK Map{z<String>=0<Integer>, a<String>=1<Integer>}
+U+0085 key-middle	OK a b<String>
+U+0085 key-end	OK a<String>
+U+0085 plain-val-start	ERR InvalidInputException
+U+0085 plain-val-middle	ERR InvalidInputException
+U+0085 plain-val-end	OK Map{k<String>=a<String>}
+U+0085 sq-start	OK Map{k<String>= a<String>}
+U+0085 sq-middle	OK Map{k<String>=a b<String>}
+U+0085 sq-end	OK Map{k<String>=a <String>}
+U+0085 dq-middle	OK Map{k<String>=a b<String>}
+U+0085 literal-middle	ERR InvalidInputException
+U+0085 literal-start	ERR InvalidInputException
+U+0085 flowseq-item-middle	OK List[a b<String>, c<String>]
+U+0085 flowseq-item-start	OK List[a<String>, c<String>]
+U+0085 comment-middle	ERR InvalidInputException
+U+0085 comment-line	OK Map{k<String>=1<Integer>}
+U+2028 doc-start	OK Map{a<String>=1<Integer>}
+U+2028 key-start(2nd)	OK Map{z<String>=0<Integer>, a<String>=1<Integer>}
+U+2028 key-middle	OK a\u2028b<String>
+U+2028 key-end	OK a<String>
+U+2028 plain-val-start	ERR InvalidInputException
+U+2028 plain-val-middle	ERR InvalidInputException
+U+2028 plain-val-end	OK Map{k<String>=a<String>}
+U+2028 sq-start	OK Map{k<String>=\u2028a<String>}
+U+2028 sq-middle	OK Map{k<String>=a\u2028b<String>}
+U+2028 sq-end	OK Map{k<String>=a\u2028<String>}
+U+2028 dq-middle	OK Map{k<String>=a\u2028b<String>}
+U+2028 literal-middle	ERR InvalidInputException
+U+2028 literal-start	ERR InvalidInputException
+U+2028 flowseq-item-middle	OK List[a\u2028b<String>, c<String>]
+U+2028 flowseq-item-start	OK List[a<String>, c<String>]
+U+2028 comment-middle	ERR InvalidInputException
+U+2028 comment-line	OK Map{k<String>=1<Integer>}
+U+2029 doc-start	OK Map{a<String>=1<Integer>}
+U+2029 key-start(2nd)	OK Map{z<String>=0<Integer>, a<String>=1<Integer>}
+U+2029 key-middle	OK a\u2029b<String>
+U+2029 key-end	OK a<String>
+U+2029 plain-val-start	ERR InvalidInputException
+U+2029 plain-val-middle	ERR InvalidInputException
+U+2029 plain-val-end	OK Map{k<String>=a<String>}
+U+2029 sq-start	OK Map{k<String>=\u2029a<String>}
+U+2029 sq-middle	OK Map{k<String>=a\u2029b<String>}
+U+2029 sq-end	OK Map{k<String>=a\u2029<String>}
+U+2029 dq-middle	OK Map{k<String>=a\u2029b<String>}
+U+2029 literal-middle	ERR InvalidInputException
+U+2029 literal-start	ERR InvalidInputException
+U+2029 flowseq-item-middle	OK List[a\u2029b<String>, c<String>]
+U+2029 flowseq-item-start	OK List[a<String>, c<String>]
+U+2029 comment-middle	ERR InvalidInputException
+U+2029 comment-line	OK Map{k<String>=1<Integer>}
+U+FEFF doc-start	OK Map{a<String>=1<Integer>}
+U+FEFF key-start(2nd)	OK Map{z<String>=0<Integer>, \ufeffa<String>=1<Integer>}
+U+FEFF key-middle	OK Map{a\ufeffb<String>=1<Integer>}
+U+FEFF key-end	OK Map{a\ufeff<String>=1<Integer>}
+U+FEFF plain-val-start	OK Map{k<String>=\ufeffa<String>}
+U+FEFF plain-val-middle	OK Map{k<String>=a\ufeffb<String>}
+U+FEFF plain-val-end	OK Map{k<String>=a\ufeff<String>}
+U+FEFF sq-start	OK Map{k<String>=\ufeffa<String>}
+U+FEFF sq-middle	OK Map{k<String>=a\ufeffb<String>}
+U+FEFF sq-end	OK Map{k<String>=a\ufeff<String>}
+U+FEFF dq-middle	OK Map{k<String>=a\ufeffb<String>}
+U+FEFF literal-middle	OK Map{k<String>=a\ufeffb\n<String>}
+U+FEFF literal-start	OK Map{k<String>=\ufeffa\n<String>}
+U+FEFF flowseq-item-middle	OK List[a\ufeffb<String>, c<String>]
+U+FEFF flowseq-item-start	OK List[\ufeffa<String>, c<String>]
+U+FEFF comment-middle	OK Map{k<String>=1<Integer>}
+U+FEFF comment-line	OK Map{k<String>=1<Integer>}

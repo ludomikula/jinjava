@@ -1,0 +1,797 @@
+anchor+alias to map	OK Map{a<String>=Map{k<String>=v<String>}, b<String>=x<String>}
+anchor+alias to list	OK Map{a<String>=List[1<Integer>, 2<Integer>], b<String>=x<String>}
+anchored key	OK Map{a<String>=1<Integer>, b<String>=x<String>}
+alias undefined	OK Map{a<String>=x<String>}
+alias top-level	OK x<String>
+alias as key	ERR InvalidInputException
+alias as explicit key	ERR InvalidInputException
+recursive anchor	OK List[a<String>]
+anchor on seq item	OK List[List[1<Integer>], a<String>]
+merge key single	OK Map{base<String>=Map{x<String>=1<Integer>}, d<String>=Map{<<<String>=b<String>, y<String>=2<Integer>}}
+merge key list	OK Map{a<String>=Map{x<String>=1<Integer>}, b<String>=Map{y<String>=2<Integer>}, c<String>=Map{<<<String>=List[a<String>, b<String>]}}
+merge key twice	OK Map{<<<String>=Map{b<String>=2<Integer>}}
+merge key quoted	OK Map{<<<String>=2<Integer>}
+49 aliases to one anchor	OK Map{x<String>=1<Integer>, y<String>=List[a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>]}
+50 aliases to one anchor	OK Map{x<String>=1<Integer>, y<String>=List[a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>]}
+51 aliases to one anchor	OK Map{x<String>=1<Integer>, y<String>=List[a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>]}
+60 aliases to one anchor	OK Map{x<String>=1<Integer>, y<String>=List[a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>, a<String>]}
+500 aliases to one anchor	OK [5541 chars, sha256 2b65c71a16834627c307c68d7f12025c57aaa7041d9f5d1eb1d7648e5e81eb3d]
+alias bomb (billion laughs, 9 levels)	OK Map{a<String>=List[x<String>, x<String>], a1<String>=List[a0<String>, a0<String>, a0<String>], a2<String>=List[a1<String>, a1<String>, a1<String>], a3<String>=List[a2<String>, a2<String>, a2<String>], a4<String>=List[a3<String>, a3<String>, a3<String>], a5<String>=List[a4<String>, a4<String>, a4<String>], a6<String>=List[a5<String>, a5<String>, a5<String>], a7<String>=List[a6<String>, a6<String>, a6<String>], a8<String>=List[a7<String>, a7<String>, a7<String>], a9<String>=List[a8<String>, a8<String>, a8<String>]}
+alias bomb (40 levels, would be 2^40 if expanded)	OK Map{a<String>=List[x<String>, x<String>], a1<String>=List[a0<String>, a0<String>], a2<String>=List[a1<String>, a1<String>], a3<String>=List[a2<String>, a2<String>], a4<String>=List[a3<String>, a3<String>], a5<String>=List[a4<String>, a4<String>], a6<String>=List[a5<String>, a5<String>], a7<String>=List[a6<String>, a6<String>], a8<String>=List[a7<String>, a7<String>], a9<String>=List[a8<String>, a8<String>], a10<String>=List[a9<String>, a9<String>], a11<String>=List[a10<String>, a10<String>], a12<String>=List[a11<String>, a11<String>], a13<String>=List[a12<String>, a12<String>], a14<String>=List[a13<String>, a13<String>], a15<String>=List[a14<String>, a14<String>], a16<String>=List[a15<String>, a15<String>], a17<String>=List[a16<String>, a16<String>], a18<String>=List[a17<String>, a17<String>], a19<String>=List[a18<String>, a18<String>], a20<String>=List[a19<String>, a19<String>], a21<String>=List[a20<String>, a20<String>], a22<String>=List[a21<String>, a21<String>], a23<String>=List[a22<String>, a22<String>], a24<String>=List[a23<String>, a23<String>], a25<String>=List[a24<String>, a24<String>], a26<String>=List[a25<String>, a25<String>], a27<String>=List[a26<String>, a26<String>], a28<String>=List[a27<String>, a27<String>], a29<String>=List[a28<String>, a28<String>], a30<String>=List[a29<String>, a29<String>], a31<String>=List[a30<String>, a30<String>], a32<String>=List[a31<String>, a31<String>], a33<String>=List[a32<String>, a32<String>], a34<String>=List[a33<String>, a33<String>], a35<String>=List[a34<String>, a34<String>], a36<String>=List[a35<String>, a35<String>], a37<String>=List[a36<String>, a36<String>], a38<String>=List[a37<String>, a37<String>], a39<String>=List[a38<String>, a38<String>], a40<String>=List[a39<String>, a39<String>]}
+2 docs	OK Map{a<String>=1<Integer>}
+3 docs	OK Map{a<String>=1<Integer>}
+doc end marker then doc	OK Map{a<String>=1<Integer>}
+scalar docs	OK a<String>
+plain scalar docs	OK a<String>
+empty first doc	OK null
+empty docs with ...	OK null
+flow docs	OK List[]
+valid first, invalid second	OK Map{a<String>=1<Integer>}
+valid first, junk second	OK Map{a<String>=1<Integer>}
+valid first, tab-indented second	OK Map{a<String>=1<Integer>}
+directive %YAML 1.1	OK Map{a<String>=1<Integer>}
+directive %YAML 1.2	OK Map{a<String>=1<Integer>}
+directive %YAML 2.0	ERR InvalidInputException
+directive %TAG	OK bar<String>
+directive %TAG handle	OK bar<String>
+dup keys diff values	OK Map{a<String>=2<Integer>}
+dup keys same values	OK Map{a<String>=1<Integer>}
+dup keys flow	OK Map{a<String>=2<Integer>}
+dup keys maps	OK Map{a<String>=Map{y<String>=2<Integer>}}
+dup keys across non-adjacent	OK Map{a<String>=3<Integer>, b<String>=2<Integer>}
+dup keys '1' vs 1	OK Map{1<String>=b<String>}
+dup keys explicit	OK Map{a<String>=null}
+empty/comment/edge 	ERR InvalidInputException
+empty/comment/edge  	ERR InvalidInputException
+empty/comment/edge \n	ERR InvalidInputException
+empty/comment/edge \n\n	ERR InvalidInputException
+empty/comment/edge # c	ERR InvalidInputException
+empty/comment/edge # c\n	ERR InvalidInputException
+empty/comment/edge ---	OK null
+empty/comment/edge --- 	OK null
+empty/comment/edge ---\n	OK null
+empty/comment/edge ...	ERR InvalidInputException
+empty/comment/edge ...\n	ERR InvalidInputException
+empty/comment/edge a:	OK Map{a<String>=null}
+empty/comment/edge a:\n	OK Map{a<String>=null}
+empty/comment/edge a: ''	OK Map{a<String>=<String>}
+empty/comment/edge a: ""	OK Map{a<String>=<String>}
+empty/comment/edge ? \n	OK Map{<String>=null}
+empty/comment/edge ? a	OK Map{a<String>=null}
+empty/comment/edge - 	OK List[null]
+empty/comment/edge -	OK List[null]
+empty/comment/edge []	OK List[]
+empty/comment/edge {}	OK Map{}
+empty/comment/edge [ ]	OK List[]
+empty/comment/edge { }	OK Map{}
+empty/comment/edge a: {}	OK Map{a<String>=Map{}}
+empty/comment/edge a: []	OK Map{a<String>=List[]}
+empty/comment/edge ~	OK null
+empty/comment/edge null	OK null
+empty/comment/edge !!null	OK <String>
+empty/comment/edge ''	OK <String>
+empty/comment/edge ""	OK <String>
+empty/comment/edge key: ~	OK Map{key<String>=null}
+empty/comment/edge a: \nb:	OK Map{a<String>=null, b<String>=null}
+empty/comment/edge a:\n  b:\n	OK Map{a<String>=Map{b<String>=null}}
+empty/comment/edge - \n- 	OK List[null, null]
+empty/comment/edge [,]	ERR InvalidInputException
+empty/comment/edge [a,,b]	ERR InvalidInputException
+empty/comment/edge {a}	OK Map{a<String>=null}
+empty/comment/edge {a: }	OK Map{a<String>=null}
+empty/comment/edge {: a}	ERR InvalidInputException
+empty/comment/edge [a: b]	OK List[Map{a<String>=b<String>}]
+empty/comment/edge {? a}	OK Map{a<String>=null}
+empty/comment/edge a: |\n	OK Map{a<String>=<String>}
+empty/comment/edge a: >\n	OK Map{a<String>=<String>}
+empty/comment/edge a: |+\n\n	OK Map{a<String>=\n<String>}
+empty/comment/edge a: |-\n  x	OK Map{a<String>=x<String>}
+empty/comment/edge \t	ERR InvalidInputException
+empty/comment/edge \tfoo	ERR InvalidInputException
+empty/comment/edge a:\tb	ERR InvalidInputException
+num top 9223372036854775807	OK 9223372036854775807<Long>
+num value 9223372036854775807	OK Map{a<String>=9223372036854775807<Long>}
+num list 9223372036854775807	OK List[9223372036854775807<Long>, 9223372036854775807<Long>]
+num top 9223372036854775808	OK 9223372036854775808<BigInteger>
+num value 9223372036854775808	OK Map{a<String>=9223372036854775808<BigInteger>}
+num list 9223372036854775808	OK List[9223372036854775808<BigInteger>, 9223372036854775808<BigInteger>]
+num top -9223372036854775808	OK -9223372036854775808<Long>
+num value -9223372036854775808	OK Map{a<String>=-9223372036854775808<Long>}
+num list -9223372036854775808	OK List[-9223372036854775808<Long>, -9223372036854775808<Long>]
+num top -9223372036854775809	OK -9223372036854775809<BigInteger>
+num value -9223372036854775809	OK Map{a<String>=-9223372036854775809<BigInteger>}
+num list -9223372036854775809	OK List[-9223372036854775809<BigInteger>, -9223372036854775809<BigInteger>]
+num top 2147483647	OK 2147483647<Integer>
+num value 2147483647	OK Map{a<String>=2147483647<Integer>}
+num list 2147483647	OK List[2147483647<Integer>, 2147483647<Integer>]
+num top 2147483648	OK 2147483648<Long>
+num value 2147483648	OK Map{a<String>=2147483648<Long>}
+num list 2147483648	OK List[2147483648<Long>, 2147483648<Long>]
+num top -2147483648	OK -2147483648<Integer>
+num value -2147483648	OK Map{a<String>=-2147483648<Integer>}
+num list -2147483648	OK List[-2147483648<Integer>, -2147483648<Integer>]
+num top -2147483649	OK -2147483649<Long>
+num value -2147483649	OK Map{a<String>=-2147483649<Long>}
+num list -2147483649	OK List[-2147483649<Long>, -2147483649<Long>]
+num top 10000000000000000000000000000000000000000	OK 10000000000000000000000000000000000000000<BigInteger>
+num value 10000000000000000000000000000000000000000	OK Map{a<String>=10000000000000000000000000000000000000000<BigInteger>}
+num list 10000000000000000000000000000000000000000	OK List[10000000000000000000000000000000000000000<BigInteger>, 10000000000000000000000000000000000000000<BigInteger>]
+num top -10000000000000000000000000000000000000000	OK -10000000000000000000000000000000000000000<BigInteger>
+num value -10000000000000000000000000000000000000000	OK Map{a<String>=-10000000000000000000000000000000000000000<BigInteger>}
+num list -10000000000000000000000000000000000000000	OK List[-10000000000000000000000000000000000000000<BigInteger>, -10000000000000000000000000000000000000000<BigInteger>]
+num top 0x7FFFFFFF	OK 2147483647<Long>
+num value 0x7FFFFFFF	OK Map{a<String>=2147483647<Long>}
+num list 0x7FFFFFFF	OK List[2147483647<Long>, 2147483647<Long>]
+num top 0x80000000	OK 2147483648<Long>
+num value 0x80000000	OK Map{a<String>=2147483648<Long>}
+num list 0x80000000	OK List[2147483648<Long>, 2147483648<Long>]
+num top 0xFFFFFFFF	OK 4294967295<Long>
+num value 0xFFFFFFFF	OK Map{a<String>=4294967295<Long>}
+num list 0xFFFFFFFF	OK List[4294967295<Long>, 4294967295<Long>]
+num top 0xFFFFFFFFFFFFFFF	OK 1152921504606846975<Long>
+num value 0xFFFFFFFFFFFFFFF	OK Map{a<String>=1152921504606846975<Long>}
+num list 0xFFFFFFFFFFFFFFF	OK List[1152921504606846975<Long>, 1152921504606846975<Long>]
+num top 0x1FFFFFFFFFFFFFFF	OK 2305843009213693951<BigInteger>
+num value 0x1FFFFFFFFFFFFFFF	OK Map{a<String>=2305843009213693951<BigInteger>}
+num list 0x1FFFFFFFFFFFFFFF	OK List[2305843009213693951<BigInteger>, 2305843009213693951<BigInteger>]
+num top -0xFFFFFFFFFFFFFFFFFF	OK -4722366482869645213695<BigInteger>
+num value -0xFFFFFFFFFFFFFFFFFF	OK Map{a<String>=-4722366482869645213695<BigInteger>}
+num list -0xFFFFFFFFFFFFFFFFFF	OK List[-4722366482869645213695<BigInteger>, -4722366482869645213695<BigInteger>]
+num top 0b1111111111111111111111111111111	OK 2147483647<Integer>
+num value 0b1111111111111111111111111111111	OK Map{a<String>=2147483647<Integer>}
+num list 0b1111111111111111111111111111111	OK List[2147483647<Integer>, 2147483647<Integer>]
+num top 0b11111111111111111111111111111111	OK 4294967295<Long>
+num value 0b11111111111111111111111111111111	OK Map{a<String>=4294967295<Long>}
+num list 0b11111111111111111111111111111111	OK List[4294967295<Long>, 4294967295<Long>]
+num top 0b111111111111111111111111111111111111111111111111111111111111111	OK 9223372036854775807<Long>
+num value 0b111111111111111111111111111111111111111111111111111111111111111	OK Map{a<String>=9223372036854775807<Long>}
+num list 0b111111111111111111111111111111111111111111111111111111111111111	OK List[9223372036854775807<Long>, 9223372036854775807<Long>]
+num top 0b1111111111111111111111111111111111111111111111111111111111111111	OK 18446744073709551615<BigInteger>
+num value 0b1111111111111111111111111111111111111111111111111111111111111111	OK Map{a<String>=18446744073709551615<BigInteger>}
+num list 0b1111111111111111111111111111111111111111111111111111111111111111	OK List[18446744073709551615<BigInteger>, 18446744073709551615<BigInteger>]
+num top 0777777777777	OK 68719476735<Long>
+num value 0777777777777	OK Map{a<String>=68719476735<Long>}
+num list 0777777777777	OK List[68719476735<Long>, 68719476735<Long>]
+num top 07777777777777777777777	OK 73786976294838206463<BigInteger>
+num value 07777777777777777777777	OK Map{a<String>=73786976294838206463<BigInteger>}
+num list 07777777777777777777777	OK List[73786976294838206463<BigInteger>, 73786976294838206463<BigInteger>]
+num top 077777777777777777777777	OK 590295810358705651711<BigInteger>
+num value 077777777777777777777777	OK Map{a<String>=590295810358705651711<BigInteger>}
+num list 077777777777777777777777	OK List[590295810358705651711<BigInteger>, 590295810358705651711<BigInteger>]
+num top 1_000_000	OK 1000000<Integer>
+num value 1_000_000	OK Map{a<String>=1000000<Integer>}
+num list 1_000_000	OK List[1000000<Integer>, 1000000<Integer>]
+num top 1_0	OK 10<Integer>
+num value 1_0	OK Map{a<String>=10<Integer>}
+num list 1_0	OK List[10<Integer>, 10<Integer>]
+num top 0_7	OK 7<Integer>
+num value 0_7	OK Map{a<String>=7<Integer>}
+num list 0_7	OK List[7<Integer>, 7<Integer>]
+num top 0b_1	OK 1<Integer>
+num value 0b_1	OK Map{a<String>=1<Integer>}
+num list 0b_1	OK List[1<Integer>, 1<Integer>]
+num top 0x_ff	OK 255<Integer>
+num value 0x_ff	OK Map{a<String>=255<Integer>}
+num list 0x_ff	OK List[255<Integer>, 255<Integer>]
+num top 1__0	OK 10<Integer>
+num value 1__0	OK Map{a<String>=10<Integer>}
+num list 1__0	OK List[10<Integer>, 10<Integer>]
+num top _1	OK _1<String>
+num value _1	OK Map{a<String>=_1<String>}
+num list _1	OK List[_1<String>, _1<String>]
+num top 1_	OK 1<Integer>
+num value 1_	OK Map{a<String>=1<Integer>}
+num list 1_	OK List[1<Integer>, 1<Integer>]
+num top +0	OK 0<Integer>
+num value +0	OK Map{a<String>=0<Integer>}
+num list +0	OK List[0<Integer>, 0<Integer>]
+num top -0	OK 0<Integer>
+num value -0	OK Map{a<String>=0<Integer>}
+num list -0	OK List[0<Integer>, 0<Integer>]
+num top 00	OK 0<Integer>
+num value 00	OK Map{a<String>=0<Integer>}
+num list 00	OK List[0<Integer>, 0<Integer>]
+num top 0	OK 0<Integer>
+num value 0	OK Map{a<String>=0<Integer>}
+num list 0	OK List[0<Integer>, 0<Integer>]
+num top +	OK +<String>
+num value +	OK Map{a<String>=+<String>}
+num list +	OK List[+<String>, +<String>]
+num top -	OK List[null]
+num value -	ERR InvalidInputException
+num list -	OK List[-<String>, -<String>]
+num top --1	OK --1<String>
+num value --1	OK Map{a<String>=--1<String>}
+num list --1	OK List[--1<String>, --1<String>]
+num top 0o7	OK 0o7<String>
+num value 0o7	OK Map{a<String>=0o7<String>}
+num list 0o7	OK List[0o7<String>, 0o7<String>]
+num top 0b	OK 0b<String>
+num value 0b	OK Map{a<String>=0b<String>}
+num list 0b	OK List[0b<String>, 0b<String>]
+num top 0x	OK 0x<String>
+num value 0x	OK Map{a<String>=0x<String>}
+num list 0x	OK List[0x<String>, 0x<String>]
+num top 0xg	OK 0xg<String>
+num value 0xg	OK Map{a<String>=0xg<String>}
+num list 0xg	OK List[0xg<String>, 0xg<String>]
+num top 1234567890123456789012345678901234567890.5	OK 1.2345678901234568E39<Double>
+num value 1234567890123456789012345678901234567890.5	OK Map{a<String>=1.2345678901234568E39<Double>}
+num list 1234567890123456789012345678901234567890.5	OK List[1.2345678901234568E39<Double>, 1.2345678901234568E39<Double>]
+num top 1234567890123456789012345678901234567890.5e10	OK 1.2345678901234567E49<Double>
+num value 1234567890123456789012345678901234567890.5e10	OK Map{a<String>=1.2345678901234567E49<Double>}
+num list 1234567890123456789012345678901234567890.5e10	OK List[1.2345678901234567E49<Double>, 1.2345678901234567E49<Double>]
+num top 1e400	OK Infinity<Double>
+num value 1e400	OK Map{a<String>=Infinity<Double>}
+num list 1e400	OK List[Infinity<Double>, Infinity<Double>]
+num top -1e400	OK -Infinity<Double>
+num value -1e400	OK Map{a<String>=-Infinity<Double>}
+num list -1e400	OK List[-Infinity<Double>, -Infinity<Double>]
+num top 1e-400	OK 0.0<Double>
+num value 1e-400	OK Map{a<String>=0.0<Double>}
+num list 1e-400	OK List[0.0<Double>, 0.0<Double>]
+num top -0.0	OK -0.0<Double>
+num value -0.0	OK Map{a<String>=-0.0<Double>}
+num list -0.0	OK List[-0.0<Double>, -0.0<Double>]
+num top 0.0	OK 0.0<Double>
+num value 0.0	OK Map{a<String>=0.0<Double>}
+num list 0.0	OK List[0.0<Double>, 0.0<Double>]
+num top .0	OK 0.0<Double>
+num value .0	OK Map{a<String>=0.0<Double>}
+num list .0	OK List[0.0<Double>, 0.0<Double>]
+num top 1.	OK 1.0<Double>
+num value 1.	OK Map{a<String>=1.0<Double>}
+num list 1.	OK List[1.0<Double>, 1.0<Double>]
+num top 1.e3	OK 1000.0<Double>
+num value 1.e3	OK Map{a<String>=1000.0<Double>}
+num list 1.e3	OK List[1000.0<Double>, 1000.0<Double>]
+num top .inf	ERR InvalidInputException
+num value .inf	ERR InvalidInputException
+num list .inf	ERR InvalidInputException
+num top -.inf	ERR InvalidInputException
+num value -.inf	ERR InvalidInputException
+num list -.inf	ERR InvalidInputException
+num top +.inf	ERR InvalidInputException
+num value +.inf	ERR InvalidInputException
+num list +.inf	ERR InvalidInputException
+num top .Inf	ERR InvalidInputException
+num value .Inf	ERR InvalidInputException
+num list .Inf	ERR InvalidInputException
+num top .INF	ERR InvalidInputException
+num value .INF	ERR InvalidInputException
+num list .INF	ERR InvalidInputException
+num top .NaN	ERR InvalidInputException
+num value .NaN	ERR InvalidInputException
+num list .NaN	ERR InvalidInputException
+num top .nan	ERR InvalidInputException
+num value .nan	ERR InvalidInputException
+num list .nan	ERR InvalidInputException
+num top .NAN	ERR InvalidInputException
+num value .NAN	ERR InvalidInputException
+num list .NAN	ERR InvalidInputException
+num top -.NaN	OK -.NaN<String>
+num value -.NaN	OK Map{a<String>=-.NaN<String>}
+num list -.NaN	OK List[-.NaN<String>, -.NaN<String>]
+num top 1_0.5	OK 10.5<Double>
+num value 1_0.5	OK Map{a<String>=10.5<Double>}
+num list 1_0.5	OK List[10.5<Double>, 10.5<Double>]
+num top +1.5	OK 1.5<Double>
+num value +1.5	OK Map{a<String>=1.5<Double>}
+num list +1.5	OK List[1.5<Double>, 1.5<Double>]
+num top 1e3	OK 1000.0<Double>
+num value 1e3	OK Map{a<String>=1000.0<Double>}
+num list 1e3	OK List[1000.0<Double>, 1000.0<Double>]
+num top 1E3	OK 1000.0<Double>
+num value 1E3	OK Map{a<String>=1000.0<Double>}
+num list 1E3	OK List[1000.0<Double>, 1000.0<Double>]
+num top 1e+3	OK 1000.0<Double>
+num value 1e+3	OK Map{a<String>=1000.0<Double>}
+num list 1e+3	OK List[1000.0<Double>, 1000.0<Double>]
+num top 1.5e-3	OK 0.0015<Double>
+num value 1.5e-3	OK Map{a<String>=0.0015<Double>}
+num list 1.5e-3	OK List[0.0015<Double>, 0.0015<Double>]
+num top 190:20:30.15	ERR InvalidInputException
+num value 190:20:30.15	ERR InvalidInputException
+num list 190:20:30.15	ERR InvalidInputException
+num top 1:30	OK 1:30<String>
+num value 1:30	OK Map{a<String>=1:30<String>}
+num list 1:30	OK List[1:30<String>, 1:30<String>]
+num top 0:30	OK 0:30<String>
+num value 0:30	OK Map{a<String>=0:30<String>}
+num list 0:30	OK List[0:30<String>, 0:30<String>]
+num top 1:60	OK 1:60<String>
+num value 1:60	OK Map{a<String>=1:60<String>}
+num list 1:60	OK List[1:60<String>, 1:60<String>]
+num top .	OK .<String>
+num value .	OK Map{a<String>=.<String>}
+num list .	OK List[.<String>, .<String>]
+num top ..5	OK ..5<String>
+num value ..5	OK Map{a<String>=..5<String>}
+num list ..5	OK List[..5<String>, ..5<String>]
+num top 1e	OK 1e<String>
+num value 1e	OK Map{a<String>=1e<String>}
+num list 1e	OK List[1e<String>, 1e<String>]
+num top 6.8523015e+5	OK 685230.15<Double>
+num value 6.8523015e+5	OK Map{a<String>=685230.15<Double>}
+num list 6.8523015e+5	OK List[685230.15<Double>, 685230.15<Double>]
+num top 0.1	OK 0.1<Double>
+num value 0.1	OK Map{a<String>=0.1<Double>}
+num list 0.1	OK List[0.1<Double>, 0.1<Double>]
+num top 123456789.123456789	OK 1.2345678912345679E8<Double>
+num value 123456789.123456789	OK Map{a<String>=1.2345678912345679E8<Double>}
+num list 123456789.123456789	OK List[1.2345678912345679E8<Double>, 1.2345678912345679E8<Double>]
+num top 9007199254740993	OK 9007199254740993<Long>
+num value 9007199254740993	OK Map{a<String>=9007199254740993<Long>}
+num list 9007199254740993	OK List[9007199254740993<Long>, 9007199254740993<Long>]
+num top 12345678901234567890.0	OK 1.2345678901234567E19<Double>
+num value 12345678901234567890.0	OK Map{a<String>=1.2345678901234567E19<Double>}
+num list 12345678901234567890.0	OK List[1.2345678901234567E19<Double>, 1.2345678901234567E19<Double>]
+tag top !!binary aGVsbG8=	OK byte[5,hash=127791473]
+tag value !!binary aGVsbG8=	OK Map{a<String>=byte[5,hash=127791473]}
+tag list !!binary aGVsbG8=	OK List[byte[5,hash=127791473]]
+tag key !!binary aGVsbG8=	OK byte[5,hash=127791473]
+tag top !!binary "aGVsbG8="	OK byte[5,hash=127791473]
+tag value !!binary "aGVsbG8="	OK Map{a<String>=byte[5,hash=127791473]}
+tag list !!binary "aGVsbG8="	OK List[byte[5,hash=127791473]]
+tag key !!binary "aGVsbG8="	OK byte[5,hash=127791473]
+tag top !!binary '!!!'	ERR InvalidInputException
+tag value !!binary '!!!'	ERR InvalidInputException
+tag list !!binary '!!!'	ERR InvalidInputException
+tag key !!binary '!!!'	ERR InvalidInputException
+tag top !!binary ""	OK byte[0,hash=1]
+tag value !!binary ""	OK Map{a<String>=byte[0,hash=1]}
+tag list !!binary ""	OK List[byte[0,hash=1]]
+tag key !!binary ""	OK byte[0,hash=1]
+tag top !!binary YWJj\n	OK byte[3,hash=126145]
+tag value !!binary YWJj\n	OK Map{a<String>=byte[3,hash=126145]}
+tag list !!binary YWJj\n	OK List[byte[3,hash=126145]]
+tag key !!binary YWJj\n	OK byte[3,hash=126145]
+tag top !!binary |\n  aGVsbG8g\n  d29ybGQ=	OK byte[11,hash=1923188771]
+tag value !!binary |\n  aGVsbG8g\n  d29ybGQ=	OK Map{a<String>=byte[11,hash=1923188771]}
+tag list !!binary |\n  aGVsbG8g\n  d29ybGQ=	OK List[byte[11,hash=1923188771]]
+tag key !!binary |\n  aGVsbG8g\n  d29ybGQ=	OK byte[11,hash=1923188771]
+tag top !!str 123	OK 123<String>
+tag value !!str 123	OK Map{a<String>=123<String>}
+tag list !!str 123	OK List[123<String>]
+tag key !!str 123	OK Map{123<String>=1<Integer>}
+tag top !!str ''	OK <String>
+tag value !!str ''	OK Map{a<String>=<String>}
+tag list !!str ''	OK List[<String>]
+tag key !!str ''	OK Map{<String>=1<Integer>}
+tag top !!str	OK <String>
+tag value !!str	OK Map{a<String>=<String>}
+tag list !!str	OK List[<String>]
+tag key !!str	OK 1<String>
+tag top !!int "12"	OK 12<Integer>
+tag value !!int "12"	OK Map{a<String>=12<Integer>}
+tag list !!int "12"	OK List[12<Integer>]
+tag key !!int "12"	OK Map{12<String>=1<Integer>}
+tag top !!int 12	OK 12<Integer>
+tag value !!int 12	OK Map{a<String>=12<Integer>}
+tag list !!int 12	OK List[12<Integer>]
+tag key !!int 12	OK Map{12<String>=1<Integer>}
+tag top !!int abc	OK abc<String>
+tag value !!int abc	OK Map{a<String>=abc<String>}
+tag list !!int abc	OK List[abc<String>]
+tag key !!int abc	OK Map{abc<String>=1<Integer>}
+tag top !!int -	ERR InvalidInputException
+tag value !!int -	ERR InvalidInputException
+tag list !!int -	ERR InvalidInputException
+tag key !!int -	OK Map{-<String>=1<Integer>}
+tag top !!int +	ERR InvalidInputException
+tag value !!int +	ERR InvalidInputException
+tag list !!int +	ERR InvalidInputException
+tag key !!int +	OK Map{+<String>=1<Integer>}
+tag top !!int ""	OK <String>
+tag value !!int ""	OK Map{a<String>=<String>}
+tag list !!int ""	OK List[<String>]
+tag key !!int ""	OK Map{<String>=1<Integer>}
+tag top !!int 0x_	ERR InvalidInputException
+tag value !!int 0x_	ERR InvalidInputException
+tag list !!int 0x_	ERR InvalidInputException
+tag key !!int 0x_	OK Map{0x_<String>=1<Integer>}
+tag top !!int 0o17	OK 0o17<String>
+tag value !!int 0o17	OK Map{a<String>=0o17<String>}
+tag list !!int 0o17	OK List[0o17<String>]
+tag key !!int 0o17	OK Map{0o17<String>=1<Integer>}
+tag top !!int 12abc	OK 12abc<String>
+tag value !!int 12abc	OK Map{a<String>=12abc<String>}
+tag list !!int 12abc	OK List[12abc<String>]
+tag key !!int 12abc	OK Map{12abc<String>=1<Integer>}
+tag top !!int 1:30	OK 1:30<String>
+tag value !!int 1:30	OK Map{a<String>=1:30<String>}
+tag list !!int 1:30	OK List[1:30<String>]
+tag key !!int 1:30	OK Map{1:30<String>=1<Integer>}
+tag top !!int 1.5	OK 1.5<String>
+tag value !!int 1.5	OK Map{a<String>=1.5<String>}
+tag list !!int 1.5	OK List[1.5<String>]
+tag key !!int 1.5	OK Map{1.5<String>=1<Integer>}
+tag top !!int 99999999999999999999999	OK 99999999999999999999999<BigInteger>
+tag value !!int 99999999999999999999999	OK Map{a<String>=99999999999999999999999<BigInteger>}
+tag list !!int 99999999999999999999999	OK List[99999999999999999999999<BigInteger>]
+tag key !!int 99999999999999999999999	OK Map{99999999999999999999999<String>=1<Integer>}
+tag top !!float 1	OK 1.0<Double>
+tag value !!float 1	OK Map{a<String>=1.0<Double>}
+tag list !!float 1	OK List[1.0<Double>]
+tag key !!float 1	OK Map{1<String>=1<Integer>}
+tag top !!float abc	ERR InvalidInputException
+tag value !!float abc	ERR InvalidInputException
+tag list !!float abc	ERR InvalidInputException
+tag key !!float abc	OK Map{abc<String>=1<Integer>}
+tag top !!float 1_0.5	OK 10.5<Double>
+tag value !!float 1_0.5	OK Map{a<String>=10.5<Double>}
+tag list !!float 1_0.5	OK List[10.5<Double>]
+tag key !!float 1_0.5	OK Map{1_0.5<String>=1<Integer>}
+tag top !!float ""	OK <String>
+tag value !!float ""	OK Map{a<String>=<String>}
+tag list !!float ""	OK List[<String>]
+tag key !!float ""	OK Map{<String>=1<Integer>}
+tag top !!float .inf	ERR InvalidInputException
+tag value !!float .inf	ERR InvalidInputException
+tag list !!float .inf	ERR InvalidInputException
+tag key !!float .inf	OK Map{.inf<String>=1<Integer>}
+tag top !!float 1e999	OK Infinity<Double>
+tag value !!float 1e999	OK Map{a<String>=Infinity<Double>}
+tag list !!float 1e999	OK List[Infinity<Double>]
+tag key !!float 1e999	OK Map{1e999<String>=1<Integer>}
+tag top !!bool yes	OK true<Boolean>
+tag value !!bool yes	OK Map{a<String>=true<Boolean>}
+tag list !!bool yes	OK List[true<Boolean>]
+tag key !!bool yes	OK Map{yes<String>=1<Integer>}
+tag top !!bool no	OK false<Boolean>
+tag value !!bool no	OK Map{a<String>=false<Boolean>}
+tag list !!bool no	OK List[false<Boolean>]
+tag key !!bool no	OK Map{no<String>=1<Integer>}
+tag top !!bool maybe	OK maybe<String>
+tag value !!bool maybe	OK Map{a<String>=maybe<String>}
+tag list !!bool maybe	OK List[maybe<String>]
+tag key !!bool maybe	OK Map{maybe<String>=1<Integer>}
+tag top !!bool true	OK true<Boolean>
+tag value !!bool true	OK Map{a<String>=true<Boolean>}
+tag list !!bool true	OK List[true<Boolean>]
+tag key !!bool true	OK Map{true<String>=1<Integer>}
+tag top !!bool TRUE	OK true<Boolean>
+tag value !!bool TRUE	OK Map{a<String>=true<Boolean>}
+tag list !!bool TRUE	OK List[true<Boolean>]
+tag key !!bool TRUE	OK Map{TRUE<String>=1<Integer>}
+tag top !!bool ""	OK <String>
+tag value !!bool ""	OK Map{a<String>=<String>}
+tag list !!bool ""	OK List[<String>]
+tag key !!bool ""	OK Map{<String>=1<Integer>}
+tag top !!null x	OK null
+tag value !!null x	OK Map{a<String>=null}
+tag list !!null x	OK List[null]
+tag key !!null x	OK Map{x<String>=1<Integer>}
+tag top !!null ""	OK <String>
+tag value !!null ""	OK Map{a<String>=<String>}
+tag list !!null ""	OK List[<String>]
+tag key !!null ""	OK Map{<String>=1<Integer>}
+tag top !!null	OK <String>
+tag value !!null	OK Map{a<String>=<String>}
+tag list !!null	OK List[<String>]
+tag key !!null	OK 1<String>
+tag top !!timestamp 2001-12-14	OK 2001-12-14<String>
+tag value !!timestamp 2001-12-14	OK Map{a<String>=2001-12-14<String>}
+tag list !!timestamp 2001-12-14	OK List[2001-12-14<String>]
+tag key !!timestamp 2001-12-14	OK Map{2001-12-14<String>=1<Integer>}
+tag top !!timestamp x	OK x<String>
+tag value !!timestamp x	OK Map{a<String>=x<String>}
+tag list !!timestamp x	OK List[x<String>]
+tag key !!timestamp x	OK Map{x<String>=1<Integer>}
+tag top !foo bar	OK bar<String>
+tag value !foo bar	OK Map{a<String>=bar<String>}
+tag list !foo bar	OK List[bar<String>]
+tag key !foo bar	OK Map{bar<String>=1<Integer>}
+tag top !foo 123	OK 123<String>
+tag value !foo 123	OK Map{a<String>=123<String>}
+tag list !foo 123	OK List[123<String>]
+tag key !foo 123	OK Map{123<String>=1<Integer>}
+tag top !foo	OK <String>
+tag value !foo	OK Map{a<String>=<String>}
+tag list !foo	OK List[<String>]
+tag key !foo	OK 1<String>
+tag top ! 123	OK 123<Integer>
+tag value ! 123	OK Map{a<String>=123<Integer>}
+tag list ! 123	OK List[123<Integer>]
+tag key ! 123	OK Map{123<String>=1<Integer>}
+tag top ! yes	OK true<Boolean>
+tag value ! yes	OK Map{a<String>=true<Boolean>}
+tag list ! yes	OK List[true<Boolean>]
+tag key ! yes	OK Map{yes<String>=1<Integer>}
+tag top !!set {a, b}	OK Map{a<String>=null, b<String>=null}
+tag value !!set {a, b}	OK Map{a<String>=Map{a<String>=null, b<String>=null}}
+tag list !!set {a, b}	OK List[Map{a<String>=null, b<String>=null}]
+tag key !!set {a, b}	ERR InvalidInputException
+tag top !!omap [a: 1, b: 2]	OK List[Map{a<String>=1<Integer>}, Map{b<String>=2<Integer>}]
+tag value !!omap [a: 1, b: 2]	OK Map{a<String>=List[Map{a<String>=1<Integer>}, Map{b<String>=2<Integer>}]}
+tag list !!omap [a: 1, b: 2]	OK List[List[Map{a<String>=1<Integer>}, Map{b<String>=2<Integer>}]]
+tag key !!omap [a: 1, b: 2]	ERR InvalidInputException
+tag top !!seq [1]	OK List[1<Integer>]
+tag value !!seq [1]	OK Map{a<String>=List[1<Integer>]}
+tag list !!seq [1]	OK List[List[1<Integer>]]
+tag key !!seq [1]	ERR InvalidInputException
+tag top !!map {a: 1}	OK Map{a<String>=1<Integer>}
+tag value !!map {a: 1}	OK Map{a<String>=Map{a<String>=1<Integer>}}
+tag list !!map {a: 1}	OK List[Map{a<String>=1<Integer>}]
+tag key !!map {a: 1}	ERR InvalidInputException
+tag top !!seq a	OK a<String>
+tag value !!seq a	OK Map{a<String>=a<String>}
+tag list !!seq a	OK List[a<String>]
+tag key !!seq a	OK Map{a<String>=1<Integer>}
+tag top !!map a	OK a<String>
+tag value !!map a	OK Map{a<String>=a<String>}
+tag list !!map a	OK List[a<String>]
+tag key !!map a	OK Map{a<String>=1<Integer>}
+tag top !<tag:yaml.org,2002:int> 12	OK 12<Integer>
+tag value !<tag:yaml.org,2002:int> 12	OK Map{a<String>=12<Integer>}
+tag list !<tag:yaml.org,2002:int> 12	OK List[12<Integer>]
+tag key !<tag:yaml.org,2002:int> 12	OK Map{12<String>=1<Integer>}
+tag top !<tag:yaml.org,2002:int,float> 12	OK 12<Integer>
+tag value !<tag:yaml.org,2002:int,float> 12	OK Map{a<String>=12<Integer>}
+tag list !<tag:yaml.org,2002:int,float> 12	OK List[12<Integer>]
+tag key !<tag:yaml.org,2002:int,float> 12	OK Map{12<String>=1<Integer>}
+tag top !<tag:yaml.org,2002:binary> aGk=	OK byte[2,hash=4290]
+tag value !<tag:yaml.org,2002:binary> aGk=	OK Map{a<String>=byte[2,hash=4290]}
+tag list !<tag:yaml.org,2002:binary> aGk=	OK List[byte[2,hash=4290]]
+tag key !<tag:yaml.org,2002:binary> aGk=	OK Map{aGk=<String>=1<Integer>}
+tag top !!merge <<	OK <<<String>
+tag value !!merge <<	OK Map{a<String>=<<<String>}
+tag list !!merge <<	OK List[<<<String>]
+tag key !!merge <<	OK Map{<<<String>=1<Integer>}
+tag top !!value =	OK =<String>
+tag value !!value =	OK Map{a<String>==<String>}
+tag list !!value =	OK List[=<String>]
+tag key !!value =	OK Map{=<String>=1<Integer>}
+tag top !!yaml !	OK <String>
+tag value !!yaml !	ERR InvalidInputException
+tag list !!yaml !	ERR InvalidInputException
+tag key !!yaml !	OK <String>
+tag top !!python/object:foo x	OK x<String>
+tag value !!python/object:foo x	OK Map{a<String>=x<String>}
+tag list !!python/object:foo x	OK List[x<String>]
+tag key !!python/object:foo x	OK Map{x<String>=1<Integer>}
+tag top &a !!map {x: 1}	OK Map{x<String>=1<Integer>}
+tag value &a !!map {x: 1}	OK Map{a<String>=Map{x<String>=1<Integer>}}
+tag list &a !!map {x: 1}	OK List[Map{x<String>=1<Integer>}]
+tag key &a !!map {x: 1}	ERR InvalidInputException
+tag top !!str &a x	OK x<String>
+tag value !!str &a x	OK Map{a<String>=x<String>}
+tag list !!str &a x	OK List[x<String>]
+tag key !!str &a x	OK Map{x<String>=1<Integer>}
+tag top &a !!int 5	OK 5<Integer>
+tag value &a !!int 5	OK Map{a<String>=5<Integer>}
+tag list &a !!int 5	OK List[5<Integer>]
+tag key &a !!int 5	OK Map{5<String>=1<Integer>}
+tag top !!int &a 5	OK 5<Integer>
+tag value !!int &a 5	OK Map{a<String>=5<Integer>}
+tag list !!int &a 5	OK List[5<Integer>]
+tag key !!int &a 5	OK Map{5<String>=1<Integer>}
+tag top !<!int> 12	OK 12<String>
+tag value !<!int> 12	OK Map{a<String>=12<String>}
+tag list !<!int> 12	OK List[12<String>]
+tag key !<!int> 12	OK Map{12<String>=1<Integer>}
+tag top !!pairs [a: 1]	OK List[Map{a<String>=1<Integer>}]
+tag value !!pairs [a: 1]	OK Map{a<String>=List[Map{a<String>=1<Integer>}]}
+tag list !!pairs [a: 1]	OK List[List[Map{a<String>=1<Integer>}]]
+tag key !!pairs [a: 1]	ERR InvalidInputException
+tag top !!float "1"	OK 1.0<Double>
+tag value !!float "1"	OK Map{a<String>=1.0<Double>}
+tag list !!float "1"	OK List[1.0<Double>]
+tag key !!float "1"	OK Map{1<String>=1<Integer>}
+tag top !!int '5'	OK 5<Integer>
+tag value !!int '5'	OK Map{a<String>=5<Integer>}
+tag list !!int '5'	OK List[5<Integer>]
+tag key !!int '5'	OK Map{5<String>=1<Integer>}
+tag top !!bool 'yes'	OK true<Boolean>
+tag value !!bool 'yes'	OK Map{a<String>=true<Boolean>}
+tag list !!bool 'yes'	OK List[true<Boolean>]
+tag key !!bool 'yes'	OK Map{yes<String>=1<Integer>}
+tag top !!str yes	OK yes<String>
+tag value !!str yes	OK Map{a<String>=yes<String>}
+tag list !!str yes	OK List[yes<String>]
+tag key !!str yes	OK Map{yes<String>=1<Integer>}
+tag top !!str null	OK null<String>
+tag value !!str null	OK Map{a<String>=null<String>}
+tag list !!str null	OK List[null<String>]
+tag key !!str null	OK Map{null<String>=1<Integer>}
+tag top !!str 0x1F	OK 0x1F<String>
+tag value !!str 0x1F	OK Map{a<String>=0x1F<String>}
+tag list !!str 0x1F	OK List[0x1F<String>]
+tag key !!str 0x1F	OK Map{0x1F<String>=1<Integer>}
+nesting flow seq depth 49	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting flow map depth 49	OK Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=1<Integer>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting unclosed flow seq depth 49	ERR InvalidInputException
+nesting block maps depth 49	OK Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=v<String>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting block compact seq depth 49	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[x<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block seq-of-seq depth 49	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[v<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block mixed depth 49	ERR InvalidInputException
+nesting flow seq depth 50	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting flow map depth 50	OK Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=1<Integer>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting unclosed flow seq depth 50	ERR InvalidInputException
+nesting block maps depth 50	OK Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=v<String>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting block compact seq depth 50	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[x<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block seq-of-seq depth 50	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[v<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block mixed depth 50	ERR InvalidInputException
+nesting flow seq depth 51	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting flow map depth 51	OK Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=1<Integer>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting unclosed flow seq depth 51	ERR InvalidInputException
+nesting block maps depth 51	OK Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=v<String>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting block compact seq depth 51	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[x<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block seq-of-seq depth 51	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[v<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block mixed depth 51	ERR InvalidInputException
+nesting flow seq depth 52	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting flow map depth 52	OK Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=1<Integer>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting unclosed flow seq depth 52	ERR InvalidInputException
+nesting block maps depth 52	OK Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=v<String>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting block compact seq depth 52	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[x<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block seq-of-seq depth 52	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[v<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block mixed depth 52	ERR InvalidInputException
+nesting flow seq depth 100	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting flow map depth 100	OK Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=Map{a<String>=1<Integer>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting unclosed flow seq depth 100	ERR InvalidInputException
+nesting block maps depth 100	OK Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=Map{k<String>=v<String>}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+nesting block compact seq depth 100	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[x<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block seq-of-seq depth 100	OK List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[List[v<String>]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+nesting block mixed depth 100	ERR InvalidInputException
+nesting flow seq depth 999	OK [5994 chars, sha256 953b25da0739cb63f8121e488ae6231fc4032a20b9fb1da169cf6acffc6bacd8]
+nesting flow map depth 999	OK [14995 chars, sha256 a1f0410b5605b09eff8eabcd9c43b199380755981c18018a436ab1ec7c6a4006]
+nesting unclosed flow seq depth 999	ERR InvalidInputException
+nesting block maps depth 999	OK [14994 chars, sha256 82b68c269d6ebde3cf046d0a7392a226e059b86f6d6b4815298db93dfc491bfb]
+nesting block compact seq depth 999	OK [6003 chars, sha256 82c7320d5b583efacfaac28315bde7efe3f3dcacb929c39ec8760f78b7cb2273]
+nesting block seq-of-seq depth 999	OK [6003 chars, sha256 8136c8b4ad2923919d04888c04ae4274989892ffa77bf31996a79fe64c7f857d]
+nesting block mixed depth 999	ERR InvalidInputException
+nesting flow seq depth 1000	OK [6000 chars, sha256 d895a6d5f519f7ecf2da746ce4d28b68efed425c9e75f73d31a403111c3044b9]
+nesting flow map depth 1000	OK [15010 chars, sha256 77b38e8c1cacbd3a1ce274965c8a7851c92d16b7293e3525445b4dbb10a04088]
+nesting unclosed flow seq depth 1000	ERR InvalidInputException
+nesting block maps depth 1000	OK [15009 chars, sha256 a1ec56656e80426319e1e1948161cb62f19b7a3b9ee53b78659dca1ca1b3a996]
+nesting block compact seq depth 1000	OK [6009 chars, sha256 db46a50a15cd960d90cb10765f52f8bac8f7447af86b59ce4f7ab107404a4ec5]
+nesting block seq-of-seq depth 1000	OK [6009 chars, sha256 9dd942f743c39e399e76c11fbedf22ffcafbd5e208180593efb26e04e89c7582]
+nesting block mixed depth 1000	ERR InvalidInputException
+nesting flow seq depth 1001	ERR InvalidInputException
+nesting flow map depth 1001	ERR InvalidInputException
+nesting unclosed flow seq depth 1001	ERR InvalidInputException
+nesting block maps depth 1001	ERR InvalidInputException
+nesting block compact seq depth 1001	ERR InvalidInputException
+nesting block seq-of-seq depth 1001	ERR InvalidInputException
+nesting block mixed depth 1001	ERR InvalidInputException
+nesting flow seq depth 1100	ERR InvalidInputException
+nesting flow map depth 1100	ERR InvalidInputException
+nesting unclosed flow seq depth 1100	ERR InvalidInputException
+nesting block maps depth 1100	ERR InvalidInputException
+nesting block compact seq depth 1100	ERR InvalidInputException
+nesting block seq-of-seq depth 1100	ERR InvalidInputException
+nesting block mixed depth 1100	ERR InvalidInputException
+nesting flow seq depth 5000	ERR InvalidInputException
+nesting flow map depth 5000	ERR InvalidInputException
+nesting unclosed flow seq depth 5000	ERR InvalidInputException
+nesting flow seq depth 50000	ERR InvalidInputException
+nesting flow map depth 50000	ERR InvalidInputException
+nesting unclosed flow seq depth 50000	ERR InvalidInputException
+siblings flow lists 999	OK [8004 chars, sha256 e08aaef84916d4b7df835923a6e58a87e3d7bba8af2e73f13f5610c78cc5242c]
+siblings block lists 999	OK [7996 chars, sha256 2a7218090bd54c4e0a96813e77522a2e6168d4b7e12b3714e73643ab7d380d74]
+siblings block maps 999	OK [32971 chars, sha256 0adef5876de1bc9fd76a5c117bc698cb43f164b08dda6892db36df1374c3a0b2]
+siblings nested-under-depth-998 999	OK [13986 chars, sha256 3cba8067e3e7572fa397caba6b234994d71466ae509aba61099b8c1fa9bd2c59]
+siblings flow lists 1000	OK [8012 chars, sha256 19eaa5c6e822deebdd7db751d8696bfc4cbbeaf58ec6076f73b1d3bf0a5a0418]
+siblings block lists 1000	OK [8004 chars, sha256 e08aaef84916d4b7df835923a6e58a87e3d7bba8af2e73f13f5610c78cc5242c]
+siblings block maps 1000	OK [33004 chars, sha256 172e629934d872b66a219ddb6073f92fd1c98b36cd84e0694a570c64492bd2ce]
+siblings nested-under-depth-998 1000	OK [13994 chars, sha256 5a6641ab72394b178f38f1a986404fcceff3c2453cdc6f10ddfddc89eb07b1bb]
+siblings flow lists 1001	OK [8020 chars, sha256 3877a52c8dde93bb148f3cb0c55fdc46f3c27afeace481d7268f64cbc9f27202]
+siblings block lists 1001	OK [8012 chars, sha256 19eaa5c6e822deebdd7db751d8696bfc4cbbeaf58ec6076f73b1d3bf0a5a0418]
+siblings block maps 1001	OK [33037 chars, sha256 fab2b52b2655d6cfd9e5f2241089600269d4224d2547d26fc1acc8813f51be2a]
+siblings nested-under-depth-998 1001	OK [14002 chars, sha256 5a64d551c0a2143fa7a1717434ca54b539d47e6acb60a2e0beb09edc729340c9]
+siblings flow lists 2000	OK [16012 chars, sha256 2b3dd6b637eebb0e79ef7565df513213a0b71cc98d1af9da75cce32f162241d0]
+siblings block lists 2000	OK [16004 chars, sha256 bc902de01a0dbfcf175e031df99726513a6ed8ecb6dd087075b1628668793d02]
+siblings block maps 2000	OK [66004 chars, sha256 8eaa27cb76652c12757bbbb88dc7bad5d2965b49c9c3c4a2600aadd0a41d8ebd]
+siblings nested-under-depth-998 2000	OK [21994 chars, sha256 990fc6e02d6fa3f43ea88447a4acf6d6d8fc7bac1c0b34d8ed53833e901aca37]
+siblings flow lists 10000	OK [80012 chars, sha256 ac9086c639aecf17d4d62eb821b570a08419519c99de884fe69a210c5c0e59f6]
+siblings block lists 10000	OK [80004 chars, sha256 b4e143c7ae6e2b09adc06919902f7a5f4c3cd13913054347f57e0a346f9859f1]
+siblings block maps 10000	OK [330004 chars, sha256 7faeb66567af2e3dfa7b2f94998423e1ec34bcf989a78950f191da499135c777]
+siblings nested-under-depth-998 10000	OK [85994 chars, sha256 52dd3247ee43c22a25509b9239234fe95dfab3e7f1d71e95dc386498ac501637]
+doc plain value (words) total=3145727	OK Map{a<String>=String[len=3145724,hash=293874856]<String>}
+doc dq value (words) total=3145727	OK Map{a<String>=String[len=3145722,hash=62875560]<String>}
+doc plain value (words) total=3145728	OK Map{a<String>=String[len=3145725,hash=520186064]<String>}
+doc dq value (words) total=3145728	OK Map{a<String>=String[len=3145723,hash=1949142480]<String>}
+doc plain value (words) total=3145729	ERR InvalidInputException
+doc dq value (words) total=3145729	ERR InvalidInputException
+doc plain value (words) total=3145730	ERR InvalidInputException
+doc dq value (words) total=3145730	ERR InvalidInputException
+doc sq value (words) total=3145728	OK Map{a<String>=String[len=3145723,hash=1949142480]<String>}
+doc comment lines total=3145728	OK Map{a<String>=1<Integer>}
+doc many entries total~3145728	OK Map{k<String>=v<String>}
+doc emoji value (words) total=3145728 chars	OK Map{a<String>=String[len=3145725,hash=1541126701]<String>}
+doc sq value (words) total=3145729	ERR InvalidInputException
+doc comment lines total=3145729	OK Map{a<String>=1<Integer>}
+doc many entries total~3145729	OK Map{k<String>=v<String>}
+doc emoji value (words) total=3145729 chars	OK Map{a<String>=String[len=3145726,hash=530287595]<String>}
+doc literal lines 3MiB-1	OK Map{a<String>=String[len=3082806,hash=-1508232366]<String>}
+doc literal lines 3MiB+1	ERR InvalidInputException
+single 3MiB-1 run of x (plain, quadratic)	OK Map{a<String>=String[len=3145724,hash=820552192]<String>}
+single 3MiB+1 run of x (dq, quadratic)	ERR InvalidInputException
+dq string value (words) 19999999	ERR InvalidInputException
+plain string value (words) 19999999	ERR InvalidInputException
+dq string value (words) 20000000	ERR InvalidInputException
+plain string value (words) 20000000	ERR InvalidInputException
+dq string value (words) 20000001	ERR InvalidInputException
+plain string value (words) 20000001	ERR InvalidInputException
+sq string value (words) 20000000	ERR InvalidInputException
+literal string value (lines) 20000000	ERR InvalidInputException
+dq string top-level (words) 20000001	OK String[len=20000001,hash=-1947677064]<String>
+dq key (words) 20000000	OK String[len=20000000,hash=214266456]<String>
+5MB doc plain value	ERR InvalidInputException
+5MB doc many entries	ERR InvalidInputException
+5MB doc list	ERR InvalidInputException
+2.5MB doc many entries (under codePointLimit)	OK Map{k<String>=v<String>}
+int digits 999	OK Map{a<String>=111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111<BigInteger>}
+int digits neg 999	OK Map{a<String>=-111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111<BigInteger>}
+int digits underscore 999	OK Map{a<String>=111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111<BigInteger>}
+float digits 999	OK Map{a<String>=Infinity<Double>}
+float exp digits 999	OK Map{a<String>=1000.0<Double>}
+hex digits 999	OK Map{a<String>=3218271712477888427988012192960428132773484280012872971417977173441789375275474743915955108196318855747299989375175005624620805101132954414485122669070357431285320909274142811603752598333006330575338513897521854123250044772806599701079103829326808824734140278016132303043320536763458395031843663887842684690142541505817092693473852590500269650412472008591834157426787052003448717006444766082682934882506160523631979246707532821097913526301929502022314652325724938565624871268577777562013487101724259982080826619259480128448490635585075618263489471329887142015337948407061362733320761528797532671009783208069795989069049522670565477102752719620748888034684573913080032707946317082626769733078287873349109894666953582631998469148069496728559408757953884282441706242031543116083733671916233886126551203040527092095481640199145914567376147193905498444522649618631720235953220010149056302967945250205200921698997579977367912212772590729026098239587756108412317192646252189140351304518855486322894443329396636044199448273172062404945835224457704600440334820667662153461218470509017862173071902522595522592685356801026849913883465904301307531130252782400232296764175410020652533949110210293633423968678445055<BigInteger>}
+bin digits 999	OK Map{a<String>=1339385758982834151185531311325002263201756014631917009304687985462938813906170153116497973519619822659493341146941433531483931607115392554498072196837321850491820971853028873177634325632796392734744272769130809372947742658424845944895692993259632864321399559710817770957553728956578048354650708508671<BigInteger>}
+oct digits 999	OK Map{a<String>=19222373783767455889555606457449258041261154620888026808845594205625918759604264824615001059978022805975463269594559451695513815326534950368516913782271067675546239849310078397078489376740010420666011378746201256506788723682713672084579543081385787137395260293916608466007710757058226645370514312583542936072245354273139364905262704777134693786761637139122507466932048442537645343492005684420789695038873590054439035217823885705188193888495855535487696757371541311710729507995641430655788012199178981621512632252823392235685340815380446336292815559323165971961122586126258625161094535246899833588217625017714773034698672088803342305355922871247404314083659924753829635469408761259834555960974550750131725737263157790786259069031128229097614511283157633025682561057349378268166463603767670890578158914073054708980062480718841055926573800835545165816408362060768357798123613929881246466752789359659843583<BigInteger>}
+!!int digits 999	OK Map{a<String>=999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999<BigInteger>}
+!!float digits 999	OK Map{a<String>=Infinity<Double>}
+int digits 1000	OK Map{a<String>=1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111<BigInteger>}
+int digits neg 1000	ERR InvalidInputException
+int digits underscore 1000	OK Map{a<String>=1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111<BigInteger>}
+float digits 1000	OK Map{a<String>=Infinity<Double>}
+float exp digits 1000	OK Map{a<String>=1000.0<Double>}
+hex digits 1000	OK Map{a<String>=51492347399646214847808195087366850124375748480205967542687634775068630004407595902655281731141101691956799830002800089993932881618127270631761962705125718900565134548386284985660041573328101289205416222360349665972000716364905595217265661269228941195746244448258116848693128588215334320509498622205482955042280664093073483095581641448004314406599552137469346518828592832055179472103116257322926958120098568378111667947320525137566616420830872032357034437211599017049997940297244440992215793627588159713293225908151682055175850169361209892215831541278194272245407174512981803733132184460760522736156531329116735825104792362729047633644043513931982208554953182609280523327141073322028315729252605973585758314671257322111975506369111947656950540127262148519067299872504689857339738750659742178024819248648433473527706243186334633078018355102487975112362393898107523775251520162384900847487124003283214747183961279637886595404361451664417571833404097734597075082340035026245620872301687781166311093270346176707191172370752998479133363591323273607045357130682594455379495528144285794769150440361528361482965708816429598622135454468820920498084044518403716748226806560330440543185763364698134783498855120895<BigInteger>}
+bin digits 1000	OK Map{a<String>=2678771517965668302371062622650004526403512029263834018609375970925877627812340306232995947039239645318986682293882867062967863214230785108996144393674643700983641943706057746355268651265592785469488545538261618745895485316849691889791385986519265728642799119421635541915107457913156096709301417017343<BigInteger>}
+oct digits 1000	OK Map{a<String>=153778990270139647116444851659594064330089236967104214470764753645007350076834118596920008479824182447803706156756475613564110522612279602948135310258168541404369918794480627176627915013920083365328091029969610052054309789461709376676636344651086297099162082351332867728061686056465813162964114500668343488577962834185114919242101638217077550294093097112980059735456387540301162747936045475366317560310988720435512281742591085641505551107966844283901574058972330493685836063965131445246304097593431852972101058022587137885482726523043570690342524474585327775688980689010069001288756281975198668705741000141718184277589376710426738442847382969979234512669279398030637083755270090078676447687796406001053805898105262326290072552249025832780916090265261064205460488458795026145331708830141367124625271312584437671840499845750728447412590406684361326531266896486146862384988911439049971734022314877278748671<BigInteger>}
+!!int digits 1000	OK Map{a<String>=9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999<BigInteger>}
+!!float digits 1000	OK Map{a<String>=Infinity<Double>}
+int digits 1001	ERR InvalidInputException
+int digits neg 1001	ERR InvalidInputException
+int digits underscore 1001	ERR InvalidInputException
+float digits 1001	ERR InvalidInputException
+float exp digits 1001	ERR InvalidInputException
+hex digits 1001	OK Map{a<String>=823877558394339437564931121397869601990011975683295480683002156401098080070521534442484507698257627071308797280044801439902926105890036330108191403282011502409042152774180559770560665173249620627286659557765594655552011461838489523476250580307663059131939911172129869579090057411445349128151977955287727280676490625489175729529306263168069030505592834199509544301257485312882871553649860117166831329921577094049786687157128402201065862733293952517712550995385584272799967044755911055875452698041410555412691614530426912882813602709779358275453304660451108355926514792207708859730114951372168363778504501265867773201676677803664762138304696222911715336879250921748488373234257173152453051668041695577372133034740117153791608101905791162511208642036194376305076797960075037717435820010555874848397107978374935576443299890981354129248293681639807601797798302369720380404024322598158413559793984052531435954943380474206185526469783226630681149334465563753553201317440560419929933956827004498660977492325538827315058757932047975666133817461172377712725714090921511286071928450308572716306407045784453783727451341062873577954167271501134727969344712294459467971628904965287048690972213835170156535981681934335<BigInteger>}
+bin digits 1001	OK Map{a<String>=5357543035931336604742125245300009052807024058527668037218751941851755255624680612465991894078479290637973364587765734125935726428461570217992288787349287401967283887412115492710537302531185570938977091076523237491790970633699383779582771973038531457285598238843271083830214915826312193418602834034687<BigInteger>}
+oct digits 1001	OK Map{a<String>=1230231922161117176931558813276752514640713895736833715766118029160058800614672948775360067838593459582429649254051804908512884180898236823585082482065348331234959350355845017413023320111360666922624728239756880416434478315693675013413090757208690376793296658810662941824493488451726505303712916005346747908623702673480919353936813105736620402352744776903840477883651100322409301983488363802930540482487909763484098253940728685132044408863734754271212592471778643949486688511721051561970432780747454823776808464180697103083861812184348565522740195796682622205511845512080552010310050255801589349645928001133745474220715013683413907542779063759833876101354235184245096670042160720629411581502371248008430447184842098610320580417992206662247328722122088513643683907670360209162653670641130936997002170500675501374723998766005827579300723253474890612250135171889174899079911291512399773872178519018229989375<BigInteger>}
+!!int digits 1001	ERR InvalidInputException
+!!float digits 1001	ERR InvalidInputException
+int digits 2000	OK Map{a<String>=String[len=2000,hash=398626048]<String>}
+int digits neg 2000	OK Map{a<String>=String[len=2001,hash=74021677]<String>}
+int digits underscore 2000	OK Map{a<String>=String[len=2001,hash=-57900733]<String>}
+float digits 2000	OK Map{a<String>=String[len=2000,hash=398625959]<String>}
+float exp digits 2000	OK Map{a<String>=String[len=2000,hash=-1499666485]<String>}
+hex digits 2000	OK Map{a<String>=String[len=2000,hash=2088401288]<String>}
+bin digits 2000	OK Map{a<String>=String[len=2000,hash=-2071226990]<String>}
+oct digits 2000	OK Map{a<String>=String[len=2000,hash=-207101465]<String>}
+!!int digits 2000	ERR InvalidInputException
+!!float digits 2000	ERR InvalidInputException
+key length 49999	OK String[len=49999,hash=-213101877]<String>
+flow key length 49999	ERR InvalidInputException
+dq key length 49999	OK String[len=49999,hash=-213101877]<String>
+explicit key length 49999	OK Map{String[len=49999,hash=-213101877]<String>=1<Integer>}
+key length 50000	OK String[len=50000,hash=1983776512]<String>
+flow key length 50000	ERR InvalidInputException
+dq key length 50000	OK String[len=50000,hash=1983776512]<String>
+explicit key length 50000	OK Map{String[len=50000,hash=1983776512]<String>=1<Integer>}
+key length 50001	OK String[len=50001,hash=1367529835]<String>
+flow key length 50001	ERR InvalidInputException
+dq key length 50001	OK String[len=50001,hash=1367529835]<String>
+explicit key length 50001	OK Map{String[len=50001,hash=1367529835]<String>=1<Integer>}
+key length 100000	OK String[len=100000,hash=1026952704]<String>
+flow key length 100000	ERR InvalidInputException
+dq key length 100000	OK String[len=100000,hash=1026952704]<String>
+explicit key length 100000	OK Map{String[len=100000,hash=1026952704]<String>=1<Integer>}
+plain scalar docs with directives only	ERR InvalidInputException
+non-string key map	ERR InvalidInputException
+null key	OK Map{~<String>=1<Integer>}
+int key	OK Map{1<String>=a<String>, 2<String>=b<String>}
+bool key	OK Map{yes<String>=1<Integer>, no<String>=2<Integer>}
+float key	OK Map{1.5<String>=a<String>}
+complex key map	ERR InvalidInputException
+tab inside plain	OK Map{a<String>=x\ty<String>}
+windows newlines	OK Map{a<String>=1<Integer>, b<String>=2<Integer>}
+CR only newlines	OK Map{a<String>=1<Integer>, b<String>=2<Integer>}
+lone high surrogate	ERR InvalidInputException
+lone low surrogate	ERR InvalidInputException
+NUL char	ERR InvalidInputException
+C0 control char	ERR InvalidInputException
+DEL char	ERR InvalidInputException
+C1 control char U+0080	ERR InvalidInputException
+U+FFFE	ERR InvalidInputException
+non-BMP in key	OK Map{\ud83d\ude00<String>=1<Integer>}
