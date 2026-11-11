@@ -1,0 +1,8 @@
+=== OUTPUT ===
+a: "yes"
+b: "1:30"
+c: "0755"
+d: "x\ny"
+e: null
+f: "RED"
+=== ERRORS ===

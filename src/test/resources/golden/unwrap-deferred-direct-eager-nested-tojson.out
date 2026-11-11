@@ -1,0 +1,4 @@
+=== OUTPUT ===
+{% if deferred %}{{ x|tojson }}{% endif %}{{ filter:tojson.filter(x, ____int3rpr3t3r____) }}
+=== ERRORS ===
+FATAL|EXCEPTION|OTHER|CannotReconstructValueException: Cannot reconstruct value: x

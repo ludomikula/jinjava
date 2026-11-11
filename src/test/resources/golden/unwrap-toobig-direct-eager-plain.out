@@ -1,0 +1,5 @@
+=== OUTPUT ===
+{% if deferred %}{{ b }}{% endif %}
+=== ERRORS ===
+FATAL|EXCEPTION|OTHER|DeferredValueException: Output too big for eager execution: 20 byte output rendered, over limit of 10 bytes
+FATAL|OUTPUT_TOO_BIG|OTHER|OutputTooBigException: 20 byte output rendered, over limit of 10 bytes

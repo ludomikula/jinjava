@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% if deferred %}com.hubspot.jinjava.testobjects.GoldenTestObjects$WrappedDeferredGetterBean@<identity-hash>{% endif %}com.hubspot.jinjava.testobjects.GoldenTestObjects$WrappedDeferredGetterBean@<identity-hash>
+=== ERRORS ===

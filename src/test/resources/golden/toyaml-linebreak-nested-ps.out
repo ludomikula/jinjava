@@ -1,0 +1,9 @@
+=== OUTPUT ===
+list:
+- "x\P"
+- ? 'k     '
+  : "v\P"
+long: "word \P word  word  word  word  word  word  word  word  word  word  word  word\
+  \  word  word  word  word  word  word  word  word  word  word  word  word  word\
+  \  word  word  word  word  word "
+=== ERRORS ===

@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{'base': {'x': 1, 'y': 2} , 'derived': {'<<': 'b', 'y': 3} }|false|false|false|false|true|false|{"base":{"x":1,"y":2},"derived":{"<<":"b","y":3}}
+=== ERRORS ===

@@ -1,0 +1,7 @@
+=== OUTPUT ===
+{% raw %}(AcronymBean: {
+  &quot;url&quot; : &quot;http://x/y&quot;,
+  &quot;xvalue&quot; : 7,
+  &quot;name&quot; : &quot;n&quot;
+}){% endraw %}
+=== ERRORS ===

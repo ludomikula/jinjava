@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% set __macro_show_903116559_temp_variable_0__ %}{'zulu': 'z', 'alpha': 1, 'yankee': 'y', 'bravo': 2, 'xray': false, 'charlie': 'c', 'whiskey': [3, 2, 1], 'delta': 'GREEN'}{{ deferred }}{% endset %}{{ __macro_show_903116559_temp_variable_0__ }}
+=== ERRORS ===

@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% macro show(a, b) %}{{ a }}-{{ b }}{% endmacro %}{% set m = {'k': [1, 'x']}  %}{{ show(m, deferred) }}
+=== ERRORS ===

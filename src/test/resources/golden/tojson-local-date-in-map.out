@@ -1,0 +1,4 @@
+=== OUTPUT ===
+
+=== ERRORS ===
+FATAL|INVALID_INPUT|PROPERTY|Invalid input for 'tojson': input object could not be written as a string

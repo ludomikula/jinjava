@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% for __ignored__ in [0] %}a=1{{ deferred }};b=2{{ deferred }};{% endfor %}
+=== ERRORS ===

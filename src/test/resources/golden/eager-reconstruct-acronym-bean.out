@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% if deferred %}{'c': {'url': 'http://x/y', 'xvalue': 7, 'name': 'n'} }{% endif %}
+=== ERRORS ===

@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% if deferred %}['GREEN', 'v']{% endif %}
+=== ERRORS ===

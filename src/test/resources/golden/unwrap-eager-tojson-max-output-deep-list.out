@@ -1,0 +1,5 @@
+=== OUTPUT ===
+{% if deferred %}{% endif %}
+=== ERRORS ===
+FATAL|OUTPUT_TOO_BIG|FUNCTION|147 byte output rendered, over limit of 40 bytes
+FATAL|OUTPUT_TOO_BIG|FUNCTION|147 byte output rendered, over limit of 40 bytes

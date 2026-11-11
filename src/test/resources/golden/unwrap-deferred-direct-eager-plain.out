@@ -1,0 +1,5 @@
+=== OUTPUT ===
+{% if deferred %}{{ b }}{% endif %}{{ b }}
+=== ERRORS ===
+FATAL|EXCEPTION|OTHER|DeferredValueException: x
+FATAL|EXCEPTION|OTHER|DeferredValueException: x

@@ -1,0 +1,4 @@
+=== OUTPUT ===
+|false|false|false|true|false|false|null
+=== ERRORS ===
+FATAL|INVALID_INPUT|PROPERTY|Invalid input for 'fromyaml': input could not be converted to an object

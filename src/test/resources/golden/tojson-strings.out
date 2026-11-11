@@ -1,0 +1,3 @@
+=== OUTPUT ===
+"a/b/c"|"</script><b>&amp;'</b>"|"café ☃ 😀   \u0007"|"he said \"hi\"\n\ttab\\"|""
+=== ERRORS ===

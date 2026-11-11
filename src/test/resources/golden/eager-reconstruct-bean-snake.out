@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% if deferred %}{'a': [1, 'b'], 'c': {'last_name': 'Doe', 'first_name': 'Jane', 'http_status_code': 200} }{% endif %}
+=== ERRORS ===

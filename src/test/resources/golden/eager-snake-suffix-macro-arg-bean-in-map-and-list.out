@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% macro show(a, b) %}{{ a }}-{{ b }}{% endmacro %}{% set m = {'k': {'zulu': 'z', 'alpha': 1, 'yankee': 'y', 'bravo': 2, 'xray': false, 'charlie': 'c', 'whiskey': [3, 2, 1], 'delta': 'GREEN'} |allow_snake_case, 'l': [{'zulu': 'z', 'alpha': 1, 'yankee': 'y', 'bravo': 2, 'xray': false, 'charlie': 'c', 'whiskey': [3, 2, 1], 'delta': 'GREEN'} |allow_snake_case]}  %}{{ show(m, deferred) }}
+=== ERRORS ===

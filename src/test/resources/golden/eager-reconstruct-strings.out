@@ -1,0 +1,4 @@
+=== OUTPUT ===
+{% if deferred %}['it\'s', 'say \"q\"', 'a/b', '</script>', 'tab	here', 'café 😀 
+ back\\slash']{% endif %}
+=== ERRORS ===

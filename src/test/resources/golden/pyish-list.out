@@ -1,0 +1,4 @@
+=== OUTPUT ===
+[1, 'a\'b\"c
+', null, 2.5, true]
+=== ERRORS ===

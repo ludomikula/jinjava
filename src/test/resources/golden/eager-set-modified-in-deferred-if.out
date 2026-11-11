@@ -1,0 +1,3 @@
+=== OUTPUT ===
+{% set l = [1, 2] %}{% if deferred %}{% do l.append(3) %}{% endif %}{{ l }}
+=== ERRORS ===

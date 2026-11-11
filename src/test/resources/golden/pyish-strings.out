@@ -1,0 +1,4 @@
+=== OUTPUT ===
+['it\'s', 'say \"x\"', 'a
+b', 'back\\slash', 'a/b', '</script>', 'café 😀']
+=== ERRORS ===

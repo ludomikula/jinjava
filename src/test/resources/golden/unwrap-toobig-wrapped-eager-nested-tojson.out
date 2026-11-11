@@ -1,0 +1,5 @@
+=== OUTPUT ===
+{% if deferred %}{% endif %}
+=== ERRORS ===
+FATAL|INVALID_INPUT|PROPERTY|Invalid input for 'tojson': input object could not be written as a string
+FATAL|INVALID_INPUT|PROPERTY|Invalid input for 'tojson': input object could not be written as a string
