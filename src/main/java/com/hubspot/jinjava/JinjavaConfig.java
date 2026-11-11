@@ -17,9 +17,6 @@ package com.hubspot.jinjava;
 
 import static com.hubspot.jinjava.lib.fn.Functions.DEFAULT_RANGE_LIMIT;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.google.common.collect.ImmutableMap;
 import com.hubspot.jinjava.el.JinjavaInterpreterResolver;
 import com.hubspot.jinjava.el.JinjavaObjectUnwrapper;
@@ -37,6 +34,7 @@ import com.hubspot.jinjava.mode.DefaultExecutionMode;
 import com.hubspot.jinjava.mode.ExecutionMode;
 import com.hubspot.jinjava.objects.date.CurrentDateTimeProvider;
 import com.hubspot.jinjava.objects.date.DateTimeProvider;
+import com.hubspot.jinjava.objects.serialization.Jackson2ParitySettings;
 import com.hubspot.jinjava.random.RandomNumberGeneratorStrategy;
 import com.hubspot.jinjava.tree.Node;
 import com.hubspot.jinjava.tree.parse.DefaultTokenScannerSymbols;
@@ -52,6 +50,9 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 import javax.el.ELResolver;
 import org.immutables.value.Value;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.PropertyNamingStrategies;
+import tools.jackson.databind.json.JsonMapper;
 
 @Value.Immutable(singleton = true)
 @JinjavaImmutableStyle.WithStyle
@@ -234,13 +235,20 @@ public class JinjavaConfig {
     return getLegacyOverrides().getDefaultKeepTrailingNewlineBehavior();
   }
 
+  /**
+   * The Jackson 3 mapper used by the {@code tojson}, {@code fromjson} and {@code pprint}
+   * filters. The default is configured through {@link Jackson2ParitySettings} so that it writes
+   * and reads what the Jackson 2 mapper of earlier versions did, with snake case property names
+   * if {@link LegacyOverrides#isUseSnakeCasePropertyNaming()} is set.
+   * Jackson 2 databind annotations and modules are not applied by this mapper.
+   */
   @Value.Default
   public ObjectMapper getObjectMapper() {
-    ObjectMapper objectMapper = new ObjectMapper().registerModule(new Jdk8Module());
+    JsonMapper.Builder builder = Jackson2ParitySettings.jsonMapperBuilder();
     if (getLegacyOverrides().isUseSnakeCasePropertyNaming()) {
-      objectMapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+      builder.propertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
     }
-    return objectMapper;
+    return builder.build();
   }
 
   @Value.Default

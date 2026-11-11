@@ -21,6 +21,7 @@ import java.io.Writer;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
+import tools.jackson.core.JacksonException;
 
 @Beta
 public class PyishObjectMapper {
@@ -105,8 +106,9 @@ public class PyishObjectMapper {
   }
 
   /**
-   * Steps to the cause while the current throwable is a Jackson wrapper (only
-   * Jackson 2's {@link JsonMappingException} for now) and returns the first
+   * Steps to the cause while the current throwable is a Jackson wrapper (Jackson 2's
+   * {@link JsonMappingException} and every Jackson 3 {@link JacksonException}, for example
+   * {@code DatabindException} and {@code JacksonIOException}) and returns the first
    * throwable that is not one, so that a wrapper layer added by Jackson does not hide
    * the exception thrown by a serializer. It stops at any other throwable, for example
    * a {@link RuntimeException} wrapping the exception of interest, and gives up after
@@ -124,7 +126,9 @@ public class PyishObjectMapper {
   }
 
   private static boolean isJacksonWrapper(Throwable throwable) {
-    return throwable instanceof JsonMappingException;
+    return (
+      throwable instanceof JsonMappingException || throwable instanceof JacksonException
+    );
   }
 
   public static String getAsPyishStringOrThrow(Object val) throws IOException {

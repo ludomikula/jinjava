@@ -6,7 +6,6 @@ import com.hubspot.jinjava.doc.annotations.JinjavaSnippet;
 import com.hubspot.jinjava.interpret.InvalidInputException;
 import com.hubspot.jinjava.interpret.InvalidReason;
 import com.hubspot.jinjava.interpret.JinjavaInterpreter;
-import java.io.IOException;
 
 @JinjavaDoc(
   value = "Converts JSON string to Object",
@@ -33,7 +32,9 @@ public class FromJsonFilter implements Filter {
         .getConfig()
         .getObjectMapper()
         .readValue((String) var, Object.class);
-    } catch (IOException e) {
+    } catch (RuntimeException e) {
+      // Jackson 3 throws unchecked exceptions, and a deserializer of a mapper supplied through
+      // the config may throw one that is not a JacksonException.
       throw new InvalidInputException(interpreter, this, InvalidReason.JSON_READ);
     }
   }

@@ -1,6 +1,7 @@
 package com.hubspot.jinjava.lib.filter;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.collect.ImmutableMap;
@@ -9,12 +10,20 @@ import com.hubspot.jinjava.BaseJinjavaTest;
 import com.hubspot.jinjava.Jinjava;
 import com.hubspot.jinjava.JinjavaConfig;
 import com.hubspot.jinjava.interpret.Context;
+import com.hubspot.jinjava.interpret.InvalidInputException;
+import com.hubspot.jinjava.interpret.InvalidReason;
 import com.hubspot.jinjava.interpret.JinjavaInterpreter;
 import com.hubspot.jinjava.objects.date.PyishDate;
+import com.hubspot.jinjava.testobjects.GoldenTestObjects.CamelBean;
+import com.hubspot.jinjava.testobjects.GoldenTestObjects.DeferredGetterBean;
+import com.hubspot.jinjava.testobjects.GoldenTestObjects.EmptyBean;
+import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import org.junit.Before;
 import org.junit.Test;
+import tools.jackson.databind.PropertyNamingStrategies;
+import tools.jackson.databind.json.JsonMapper;
 
 public class PrettyPrintFilterTest {
 
@@ -83,6 +92,39 @@ public class PrettyPrintFilterTest {
           myClass.getNestedClass().getBarField()
         )
       );
+  }
+
+  @Test
+  public void ppObjectUsesTheObjectMapperOfTheConfig() {
+    JinjavaConfig config = BaseJinjavaTest
+      .newConfigBuilder()
+      .withObjectMapper(
+        JsonMapper
+          .builder()
+          .propertyNamingStrategy(PropertyNamingStrategies.UPPER_SNAKE_CASE)
+          .build()
+      )
+      .build();
+    JinjavaInterpreter custom = new Jinjava(config).newInterpreter();
+    assertThat(f.filter(new CamelBean(), custom))
+      .isEqualTo(
+        "{% raw %}(CamelBean: {\n" +
+        "  &quot;FIRST_NAME&quot; : &quot;Jane&quot;,\n" +
+        "  &quot;HTTP_STATUS_CODE&quot; : 200,\n" +
+        "  &quot;LAST_NAME&quot; : &quot;Doe&quot;\n" +
+        "}){% endraw %}"
+      );
+  }
+
+  @Test
+  public void ppFailsWithInvalidInputWhenObjectCannotBeWritten() {
+    assertThatThrownBy(() -> f.filter(new EmptyBean(), i))
+      .isInstanceOf(InvalidInputException.class)
+      .hasMessageContaining(InvalidReason.JSON_WRITE.getErrorMessage());
+    assertThatThrownBy(() -> f.filter(Instant.EPOCH, i))
+      .isInstanceOf(InvalidInputException.class);
+    assertThatThrownBy(() -> f.filter(new DeferredGetterBean(), i))
+      .isInstanceOf(InvalidInputException.class);
   }
 
   @JsonPropertyOrder({ "foo", "bar", "nestedClass" })

@@ -1,6 +1,5 @@
 package com.hubspot.jinjava.lib.filter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.hubspot.jinjava.doc.annotations.JinjavaDoc;
 import com.hubspot.jinjava.doc.annotations.JinjavaParam;
 import com.hubspot.jinjava.doc.annotations.JinjavaSnippet;
@@ -60,7 +59,9 @@ public class PrettyPrintFilter implements Filter {
             .getObjectMapper()
             .writerWithDefaultPrettyPrinter()
             .writeValueAsString(var);
-      } catch (JsonProcessingException e) {
+      } catch (RuntimeException e) {
+        // Jackson 3 throws unchecked exceptions and lets the failure of a root serializer
+        // through unwrapped, where Jackson 2 reported all of them as JsonProcessingException.
         throw new InvalidInputException(interpreter, this, InvalidReason.JSON_WRITE);
       }
     }

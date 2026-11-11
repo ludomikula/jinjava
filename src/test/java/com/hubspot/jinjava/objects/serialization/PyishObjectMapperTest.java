@@ -24,6 +24,8 @@ import java.util.Map;
 import java.util.Optional;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
+import tools.jackson.core.exc.JacksonIOException;
+import tools.jackson.databind.DatabindException;
 
 public class PyishObjectMapperTest {
 
@@ -364,5 +366,110 @@ public class PyishObjectMapperTest {
         )
       )
       .isInstanceOf(OutputTooBigException.class);
+  }
+
+  private static DatabindException wrapJackson3(String message, Throwable cause) {
+    return DatabindException.from(
+      (tools.jackson.core.JsonGenerator) null,
+      message,
+      cause
+    );
+  }
+
+  @Test
+  public void itMapsLengthLimitBehindJackson3IoWrapper() {
+    assertThatThrownBy(() ->
+        PyishObjectMapper.handleLengthLimitingException(
+          JacksonIOException.construct(limitException())
+        )
+      )
+      .isInstanceOf(OutputTooBigException.class);
+  }
+
+  @Test
+  public void itMapsLengthLimitBehindStackedJackson3Wrappers() {
+    assertThatThrownBy(() ->
+        PyishObjectMapper.handleLengthLimitingException(
+          wrapJackson3("outer", JacksonIOException.construct(limitException()))
+        )
+      )
+      .isInstanceOf(OutputTooBigException.class);
+  }
+
+  @Test
+  public void itMapsLengthLimitBehindMixedJacksonGenerations() {
+    assertThatThrownBy(() ->
+        PyishObjectMapper.handleLengthLimitingException(
+          wrap("outer", wrapJackson3("inner", limitException()))
+        )
+      )
+      .isInstanceOf(OutputTooBigException.class);
+  }
+
+  @Test
+  public void itRethrowsOutputTooBigExceptionBehindJackson3Wrapper() {
+    OutputTooBigException tooBig = new OutputTooBigException(
+      LIMIT_MAX_SIZE,
+      LIMIT_ATTEMPTED_SIZE
+    );
+    assertThatThrownBy(() ->
+        PyishObjectMapper.handleLengthLimitingException(wrapJackson3("x", tooBig))
+      )
+      .isSameAs(tooBig);
+  }
+
+  @Test
+  public void itStopsJackson3LengthLimitUnwrappingAtFirstNonWrapper() {
+    PyishObjectMapper.handleLengthLimitingException(
+      wrapJackson3("x", new RuntimeException(limitException()))
+    );
+    PyishObjectMapper.handleLengthLimitingException(
+      JacksonIOException.construct(new IOException("plain"))
+    );
+  }
+
+  @Test
+  public void itStripsJackson3WrappersToDeferredValueException() {
+    DeferredValueException deferred = new DeferredValueException("deferred");
+    assertThat(PyishObjectMapper.stripJacksonWrappers(wrapJackson3("x", deferred)))
+      .isSameAs(deferred);
+    assertThat(
+      PyishObjectMapper.stripJacksonWrappers(
+        wrapJackson3("outer", wrapJackson3("inner", deferred))
+      )
+    )
+      .isSameAs(deferred);
+    assertThat(
+      PyishObjectMapper.stripJacksonWrappers(
+        wrapJackson3("outer", wrap("inner", deferred))
+      )
+    )
+      .isSameAs(deferred);
+  }
+
+  @Test
+  public void itStopsStrippingJackson3WrappersAtFirstNonWrapper() {
+    RuntimeException runtime = new RuntimeException(
+      new DeferredValueException("deferred")
+    );
+    assertThat(PyishObjectMapper.stripJacksonWrappers(wrapJackson3("x", runtime)))
+      .isSameAs(runtime);
+  }
+
+  @Test
+  public void itStripsJackson3WrapperWithoutCauseToNull() {
+    assertThat(PyishObjectMapper.stripJacksonWrappers(wrapJackson3("x", null))).isNull();
+  }
+
+  @Test
+  public void itBoundsStrippingOfLongJackson3WrapperChains() {
+    Throwable innermost = new DeferredValueException("deferred");
+    Throwable chain = innermost;
+    for (int i = 0; i < MAX_WRAPPER_DEPTH_PROBE; i++) {
+      chain = wrapJackson3("layer " + i, chain);
+    }
+    Throwable stripped = PyishObjectMapper.stripJacksonWrappers(chain);
+    assertThat(stripped).isInstanceOf(DatabindException.class);
+    assertThat(stripped).isNotSameAs(innermost);
   }
 }

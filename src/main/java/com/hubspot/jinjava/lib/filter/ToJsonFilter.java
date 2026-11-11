@@ -10,7 +10,6 @@ import com.hubspot.jinjava.interpret.JinjavaInterpreter;
 import com.hubspot.jinjava.objects.serialization.LengthLimitingWriter;
 import com.hubspot.jinjava.objects.serialization.PyishObjectMapper;
 import java.io.CharArrayWriter;
-import java.io.IOException;
 import java.io.Writer;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -38,8 +37,11 @@ public class ToJsonFilter implements Filter {
       } else {
         return interpreter.getConfig().getObjectMapper().writeValueAsString(var);
       }
-    } catch (IOException e) {
-      Throwable cause = PyishObjectMapper.stripJacksonWrappers(e.getCause());
+    } catch (RuntimeException e) {
+      // Jackson 3 throws unchecked exceptions and does not wrap everything a serializer throws:
+      // a DeferredValueException or OutputTooBigException raised by a root serializer arrives
+      // as is, so this catches RuntimeException and not only JacksonException.
+      Throwable cause = PyishObjectMapper.stripJacksonWrappers(e);
       if (cause instanceof DeferredValueException) {
         throw (DeferredValueException) cause;
       }

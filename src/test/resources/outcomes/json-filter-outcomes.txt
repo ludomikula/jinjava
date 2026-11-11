@@ -1,0 +1,850 @@
+tojson/default/nolimit	LinkedHashMap	VALUE java.lang.String:{"b":1,"a":2}
+tojson/default/nolimit	HashMap mixed keys	VALUE java.lang.String:{"2":"two","s":1,"3":"three","c":"ch","1.5":"d","true":"t"}
+tojson/default/nolimit	map with null value	VALUE java.lang.String:{"a":null,"b":1}
+tojson/default/nolimit	map with null key	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	Guava ImmutableMap	VALUE java.lang.String:{"z":1,"y":2}
+tojson/default/nolimit	list	VALUE java.lang.String:[1,"two",3.0,null]
+tojson/default/nolimit	int array	VALUE java.lang.String:[1,2,3]
+tojson/default/nolimit	byte array	VALUE java.lang.String:"AQID/w=="
+tojson/default/nolimit	char	VALUE java.lang.String:"c"
+tojson/default/nolimit	1000 element list	VALUE <length 3908 sha256 88abef98e708e074>
+tojson/default/nolimit	30 short strings	VALUE java.lang.String:["s0","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10","s11","s12","s13","s14","s15","s16","s17","s18","s19","s20","s21","s22","s23","s24","s25","s26","s27","s28","s29"]
+tojson/default/nolimit	bean 3 properties	VALUE java.lang.String:{"lastName":"Doe","firstName":"Jane","httpStatusCode":200}
+tojson/default/nolimit	bean 6 properties	VALUE java.lang.String:{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}
+tojson/default/nolimit	bean 8 properties	VALUE java.lang.String:{"zulu":"z","alpha":1,"yankee":"y","bravo":2,"xray":false,"charlie":"c","whiskey":[3,2,1],"delta":"GREEN"}
+tojson/default/nolimit	bean getURL getXValue	VALUE java.lang.String:{"url":"http://x/y","xvalue":7,"name":"n"}
+tojson/default/nolimit	bean public field and is-getter	VALUE java.lang.String:{"pubField":"pf","url":"u","xvalue":"x","active":true,"midValue":"m"}
+tojson/default/nolimit	bean without properties	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	empty bean	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	bean with NullValue property	VALUE java.lang.String:{"n":null}
+tojson/default/nolimit	list of beans	VALUE <length 204 sha256 4ba4c72b0cf4a46b>
+tojson/default/nolimit	map holding a bean	VALUE java.lang.String:{"s":{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}}
+tojson/default/nolimit	enum with toString override	VALUE java.lang.String:"RED"
+tojson/default/nolimit	Date	VALUE java.lang.String:0
+tojson/default/nolimit	Instant	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	ZonedDateTime	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	LocalDate	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	Duration	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	Instant in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	LocalDate in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	Duration in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	Locale	VALUE java.lang.String:"en_US"
+tojson/default/nolimit	Locale in map	VALUE java.lang.String:{"l":"en_US"}
+tojson/default/nolimit	PyishDate	VALUE java.lang.String:1582982055123
+tojson/default/nolimit	Optional present	VALUE java.lang.String:"x"
+tojson/default/nolimit	Optional empty	VALUE java.lang.String:null
+tojson/default/nolimit	OptionalInt	VALUE java.lang.String:3
+tojson/default/nolimit	null	VALUE java.lang.String:null
+tojson/default/nolimit	NullValue	VALUE java.lang.String:null
+tojson/default/nolimit	NullValue in map	VALUE java.lang.String:{"n":null}
+tojson/default/nolimit	NullValue in list	VALUE java.lang.String:[1,null]
+tojson/default/nolimit	string with slash	VALUE java.lang.String:"a/b"
+tojson/default/nolimit	string with script end tag	VALUE java.lang.String:"</script>"
+tojson/default/nolimit	string e acute	VALUE java.lang.String:"\u00e9"
+tojson/default/nolimit	string emoji	VALUE java.lang.String:"\ud83c\udf89"
+tojson/default/nolimit	string control character	VALUE java.lang.String:"\\u0001"
+tojson/default/nolimit	string line separator	VALUE java.lang.String:"\u2028"
+tojson/default/nolimit	string space	VALUE java.lang.String:" "
+tojson/default/nolimit	string with quote	VALUE java.lang.String:"\\"quote\\""
+tojson/default/nolimit	string with apostrophe newline tab backslash	VALUE java.lang.String:"it's\\n\\t\\\\ end"
+tojson/default/nolimit	long string	VALUE <length 10019 sha256 09bcf3bfdfbe2b5d>
+tojson/default/nolimit	BigDecimal 1.10	VALUE java.lang.String:1.10
+tojson/default/nolimit	BigDecimal 1E+3	VALUE java.lang.String:1E+3
+tojson/default/nolimit	BigInteger	VALUE java.lang.String:12345678901234567890
+tojson/default/nolimit	Double 1.0	VALUE java.lang.String:1.0
+tojson/default/nolimit	Double NaN	VALUE java.lang.String:"NaN"
+tojson/default/nolimit	Double infinity	VALUE java.lang.String:"Infinity"
+tojson/default/nolimit	Long.MAX_VALUE	VALUE java.lang.String:9223372036854775807
+tojson/default/nolimit	Float	VALUE java.lang.String:1.5
+tojson/default/nolimit	SafeString	VALUE java.lang.String:"<b>"
+tojson/default/nolimit	LazyExpression evaluated	VALUE java.lang.String:"val"
+tojson/default/nolimit	LazyExpression not evaluated	VALUE java.lang.String:""
+tojson/default/nolimit	LazyExpression throwing DeferredValueException	VALUE java.lang.String:""
+tojson/default/nolimit	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:""
+tojson/default/nolimit	LazyExpression throwing RuntimeException	VALUE java.lang.String:""
+tojson/default/nolimit	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:""
+tojson/default/nolimit	Namespace	VALUE java.lang.String:{"a":1}
+tojson/default/nolimit	SnakeCaseAccessibleMap	VALUE java.lang.String:{"fooBar":1}
+tojson/default/nolimit	SizeLimitingPyMap	VALUE java.lang.String:{"a":1}
+tojson/default/nolimit	PyList	VALUE java.lang.String:[1,"a"]
+tojson/default/nolimit	NamedParameter	VALUE java.lang.String:{"name":"n","value":"v"}
+tojson/default/nolimit	Map.Entry	VALUE java.lang.String:{"k":"v"}
+tojson/default/nolimit	self-referencing list	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	self-referencing map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	bean getter throwing DeferredValueException	DEFERRED x
+tojson/default/nolimit	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/nolimit	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	nested bean getter throwing DeferredValueException	DEFERRED x
+tojson/default/nolimit	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	nested bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/nolimit	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	nested value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root list throwing DeferredValueException	DEFERRED list
+tojson/default/nolimit	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/nolimit	root list throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root list throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	root list throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	nested list throwing DeferredValueException	DEFERRED list
+tojson/default/nolimit	600 nested lists	VALUE <length 1219 sha256 2d33ce7f27b7b9f5>
+tojson/default/nolimit	501 nested lists	VALUE <length 1021 sha256 0fffc42009919920>
+tojson/default/nolimit	1000 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	1001 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/nolimit	20 levels with strings	VALUE <length 642 sha256 ede65934fa2d2440>
+tojson/default/nolimit	20 levels with strings and self reference	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	LinkedHashMap	VALUE java.lang.String:{"b":1,"a":2}
+tojson/default/limit20	HashMap mixed keys	TOO_BIG 59 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	map with null value	VALUE java.lang.String:{"a":null,"b":1}
+tojson/default/limit20	map with null key	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	Guava ImmutableMap	VALUE java.lang.String:{"z":1,"y":2}
+tojson/default/limit20	list	VALUE java.lang.String:[1,"two",3.0,null]
+tojson/default/limit20	int array	VALUE java.lang.String:[1,2,3]
+tojson/default/limit20	byte array	VALUE java.lang.String:"AQID/w=="
+tojson/default/limit20	char	VALUE java.lang.String:"c"
+tojson/default/limit20	1000 element list	TOO_BIG 3891 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	30 short strings	TOO_BIG 171 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	bean 3 properties	TOO_BIG 58 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	bean 6 properties	TOO_BIG 71 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	bean 8 properties	TOO_BIG 106 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	bean getURL getXValue	TOO_BIG 42 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	bean public field and is-getter	TOO_BIG 69 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	bean without properties	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	empty bean	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	bean with NullValue property	VALUE java.lang.String:{"n":null}
+tojson/default/limit20	list of beans	TOO_BIG 179 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	map holding a bean	TOO_BIG 76 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	enum with toString override	VALUE java.lang.String:"RED"
+tojson/default/limit20	Date	VALUE java.lang.String:0
+tojson/default/limit20	Instant	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	ZonedDateTime	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	LocalDate	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	Duration	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	Instant in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	LocalDate in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	Duration in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	Locale	VALUE java.lang.String:"en_US"
+tojson/default/limit20	Locale in map	VALUE java.lang.String:{"l":"en_US"}
+tojson/default/limit20	PyishDate	VALUE java.lang.String:1582982055123
+tojson/default/limit20	Optional present	VALUE java.lang.String:"x"
+tojson/default/limit20	Optional empty	VALUE java.lang.String:null
+tojson/default/limit20	OptionalInt	VALUE java.lang.String:3
+tojson/default/limit20	null	VALUE java.lang.String:null
+tojson/default/limit20	NullValue	VALUE java.lang.String:null
+tojson/default/limit20	NullValue in map	VALUE java.lang.String:{"n":null}
+tojson/default/limit20	NullValue in list	VALUE java.lang.String:[1,null]
+tojson/default/limit20	string with slash	VALUE java.lang.String:"a/b"
+tojson/default/limit20	string with script end tag	VALUE java.lang.String:"</script>"
+tojson/default/limit20	string e acute	VALUE java.lang.String:"\u00e9"
+tojson/default/limit20	string emoji	VALUE java.lang.String:"\ud83c\udf89"
+tojson/default/limit20	string control character	VALUE java.lang.String:"\\u0001"
+tojson/default/limit20	string line separator	VALUE java.lang.String:"\u2028"
+tojson/default/limit20	string space	VALUE java.lang.String:" "
+tojson/default/limit20	string with quote	VALUE java.lang.String:"\\"quote\\""
+tojson/default/limit20	string with apostrophe newline tab backslash	VALUE java.lang.String:"it's\\n\\t\\\\ end"
+tojson/default/limit20	long string	TOO_BIG 4001 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	BigDecimal 1.10	VALUE java.lang.String:1.10
+tojson/default/limit20	BigDecimal 1E+3	VALUE java.lang.String:1E+3
+tojson/default/limit20	BigInteger	VALUE java.lang.String:12345678901234567890
+tojson/default/limit20	Double 1.0	VALUE java.lang.String:1.0
+tojson/default/limit20	Double NaN	VALUE java.lang.String:"NaN"
+tojson/default/limit20	Double infinity	VALUE java.lang.String:"Infinity"
+tojson/default/limit20	Long.MAX_VALUE	VALUE java.lang.String:9223372036854775807
+tojson/default/limit20	Float	VALUE java.lang.String:1.5
+tojson/default/limit20	SafeString	VALUE java.lang.String:"<b>"
+tojson/default/limit20	LazyExpression evaluated	VALUE java.lang.String:"val"
+tojson/default/limit20	LazyExpression not evaluated	VALUE java.lang.String:""
+tojson/default/limit20	LazyExpression throwing DeferredValueException	VALUE java.lang.String:""
+tojson/default/limit20	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:""
+tojson/default/limit20	LazyExpression throwing RuntimeException	VALUE java.lang.String:""
+tojson/default/limit20	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:""
+tojson/default/limit20	Namespace	VALUE java.lang.String:{"a":1}
+tojson/default/limit20	SnakeCaseAccessibleMap	VALUE java.lang.String:{"fooBar":1}
+tojson/default/limit20	SizeLimitingPyMap	VALUE java.lang.String:{"a":1}
+tojson/default/limit20	PyList	VALUE java.lang.String:[1,"a"]
+tojson/default/limit20	NamedParameter	TOO_BIG 24 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	Map.Entry	VALUE java.lang.String:{"k":"v"}
+tojson/default/limit20	self-referencing list	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	self-referencing map	TOO_BIG 4000 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	bean getter throwing DeferredValueException	DEFERRED x
+tojson/default/limit20	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/limit20	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	nested bean getter throwing DeferredValueException	DEFERRED x
+tojson/default/limit20	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	nested bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/limit20	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	nested value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root list throwing DeferredValueException	DEFERRED list
+tojson/default/limit20	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/limit20	root list throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root list throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	root list throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	nested list throwing DeferredValueException	DEFERRED list
+tojson/default/limit20	600 nested lists	TOO_BIG 1202 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	501 nested lists	TOO_BIG 1004 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	1000 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	1001 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit20	20 levels with strings	TOO_BIG 625 byte output rendered, over limit of 20 bytes
+tojson/default/limit20	20 levels with strings and self reference	TOO_BIG 3992 byte output rendered, over limit of 20 bytes
+tojson/default/limit10000	LinkedHashMap	VALUE java.lang.String:{"b":1,"a":2}
+tojson/default/limit10000	HashMap mixed keys	VALUE java.lang.String:{"2":"two","s":1,"3":"three","c":"ch","1.5":"d","true":"t"}
+tojson/default/limit10000	map with null value	VALUE java.lang.String:{"a":null,"b":1}
+tojson/default/limit10000	map with null key	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	Guava ImmutableMap	VALUE java.lang.String:{"z":1,"y":2}
+tojson/default/limit10000	list	VALUE java.lang.String:[1,"two",3.0,null]
+tojson/default/limit10000	int array	VALUE java.lang.String:[1,2,3]
+tojson/default/limit10000	byte array	VALUE java.lang.String:"AQID/w=="
+tojson/default/limit10000	char	VALUE java.lang.String:"c"
+tojson/default/limit10000	1000 element list	VALUE <length 3908 sha256 88abef98e708e074>
+tojson/default/limit10000	30 short strings	VALUE java.lang.String:["s0","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10","s11","s12","s13","s14","s15","s16","s17","s18","s19","s20","s21","s22","s23","s24","s25","s26","s27","s28","s29"]
+tojson/default/limit10000	bean 3 properties	VALUE java.lang.String:{"lastName":"Doe","firstName":"Jane","httpStatusCode":200}
+tojson/default/limit10000	bean 6 properties	VALUE java.lang.String:{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}
+tojson/default/limit10000	bean 8 properties	VALUE java.lang.String:{"zulu":"z","alpha":1,"yankee":"y","bravo":2,"xray":false,"charlie":"c","whiskey":[3,2,1],"delta":"GREEN"}
+tojson/default/limit10000	bean getURL getXValue	VALUE java.lang.String:{"url":"http://x/y","xvalue":7,"name":"n"}
+tojson/default/limit10000	bean public field and is-getter	VALUE java.lang.String:{"pubField":"pf","url":"u","xvalue":"x","active":true,"midValue":"m"}
+tojson/default/limit10000	bean without properties	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	empty bean	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	bean with NullValue property	VALUE java.lang.String:{"n":null}
+tojson/default/limit10000	list of beans	VALUE <length 204 sha256 4ba4c72b0cf4a46b>
+tojson/default/limit10000	map holding a bean	VALUE java.lang.String:{"s":{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}}
+tojson/default/limit10000	enum with toString override	VALUE java.lang.String:"RED"
+tojson/default/limit10000	Date	VALUE java.lang.String:0
+tojson/default/limit10000	Instant	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	ZonedDateTime	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	LocalDate	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	Duration	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	Instant in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	LocalDate in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	Duration in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	Locale	VALUE java.lang.String:"en_US"
+tojson/default/limit10000	Locale in map	VALUE java.lang.String:{"l":"en_US"}
+tojson/default/limit10000	PyishDate	VALUE java.lang.String:1582982055123
+tojson/default/limit10000	Optional present	VALUE java.lang.String:"x"
+tojson/default/limit10000	Optional empty	VALUE java.lang.String:null
+tojson/default/limit10000	OptionalInt	VALUE java.lang.String:3
+tojson/default/limit10000	null	VALUE java.lang.String:null
+tojson/default/limit10000	NullValue	VALUE java.lang.String:null
+tojson/default/limit10000	NullValue in map	VALUE java.lang.String:{"n":null}
+tojson/default/limit10000	NullValue in list	VALUE java.lang.String:[1,null]
+tojson/default/limit10000	string with slash	VALUE java.lang.String:"a/b"
+tojson/default/limit10000	string with script end tag	VALUE java.lang.String:"</script>"
+tojson/default/limit10000	string e acute	VALUE java.lang.String:"\u00e9"
+tojson/default/limit10000	string emoji	VALUE java.lang.String:"\ud83c\udf89"
+tojson/default/limit10000	string control character	VALUE java.lang.String:"\\u0001"
+tojson/default/limit10000	string line separator	VALUE java.lang.String:"\u2028"
+tojson/default/limit10000	string space	VALUE java.lang.String:" "
+tojson/default/limit10000	string with quote	VALUE java.lang.String:"\\"quote\\""
+tojson/default/limit10000	string with apostrophe newline tab backslash	VALUE java.lang.String:"it's\\n\\t\\\\ end"
+tojson/default/limit10000	long string	TOO_BIG 10001 byte output rendered, over limit of 10000 bytes
+tojson/default/limit10000	BigDecimal 1.10	VALUE java.lang.String:1.10
+tojson/default/limit10000	BigDecimal 1E+3	VALUE java.lang.String:1E+3
+tojson/default/limit10000	BigInteger	VALUE java.lang.String:12345678901234567890
+tojson/default/limit10000	Double 1.0	VALUE java.lang.String:1.0
+tojson/default/limit10000	Double NaN	VALUE java.lang.String:"NaN"
+tojson/default/limit10000	Double infinity	VALUE java.lang.String:"Infinity"
+tojson/default/limit10000	Long.MAX_VALUE	VALUE java.lang.String:9223372036854775807
+tojson/default/limit10000	Float	VALUE java.lang.String:1.5
+tojson/default/limit10000	SafeString	VALUE java.lang.String:"<b>"
+tojson/default/limit10000	LazyExpression evaluated	VALUE java.lang.String:"val"
+tojson/default/limit10000	LazyExpression not evaluated	VALUE java.lang.String:""
+tojson/default/limit10000	LazyExpression throwing DeferredValueException	VALUE java.lang.String:""
+tojson/default/limit10000	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:""
+tojson/default/limit10000	LazyExpression throwing RuntimeException	VALUE java.lang.String:""
+tojson/default/limit10000	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:""
+tojson/default/limit10000	Namespace	VALUE java.lang.String:{"a":1}
+tojson/default/limit10000	SnakeCaseAccessibleMap	VALUE java.lang.String:{"fooBar":1}
+tojson/default/limit10000	SizeLimitingPyMap	VALUE java.lang.String:{"a":1}
+tojson/default/limit10000	PyList	VALUE java.lang.String:[1,"a"]
+tojson/default/limit10000	NamedParameter	VALUE java.lang.String:{"name":"n","value":"v"}
+tojson/default/limit10000	Map.Entry	VALUE java.lang.String:{"k":"v"}
+tojson/default/limit10000	self-referencing list	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	self-referencing map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	bean getter throwing DeferredValueException	DEFERRED x
+tojson/default/limit10000	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/limit10000	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	nested bean getter throwing DeferredValueException	DEFERRED x
+tojson/default/limit10000	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	nested bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/limit10000	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	nested value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root list throwing DeferredValueException	DEFERRED list
+tojson/default/limit10000	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/default/limit10000	root list throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root list throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	root list throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	nested list throwing DeferredValueException	DEFERRED list
+tojson/default/limit10000	600 nested lists	VALUE <length 1219 sha256 2d33ce7f27b7b9f5>
+tojson/default/limit10000	501 nested lists	VALUE <length 1021 sha256 0fffc42009919920>
+tojson/default/limit10000	1000 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	1001 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/default/limit10000	20 levels with strings	VALUE <length 642 sha256 ede65934fa2d2440>
+tojson/default/limit10000	20 levels with strings and self reference	TOO_BIG 11977 byte output rendered, over limit of 10000 bytes
+pprint/default	LinkedHashMap	VALUE java.lang.String:{% raw %}(LinkedHashMap: {a=2, b=1}){% endraw %}
+pprint/default	HashMap mixed keys	OTHER java.lang.ClassCastException
+pprint/default	map with null value	VALUE java.lang.String:{% raw %}(LinkedHashMap: {a=null, b=1}){% endraw %}
+pprint/default	map with null key	OTHER java.lang.NullPointerException
+pprint/default	Guava ImmutableMap	VALUE java.lang.String:{% raw %}(RegularImmutableMap: {y=2, z=1}){% endraw %}
+pprint/default	list	VALUE java.lang.String:{% raw %}(ArrayList: [1, two, 3.0, null]){% endraw %}
+pprint/default	int array	VALUE java.lang.String:{% raw %}(int[]: [ 1, 2, 3 ]){% endraw %}
+pprint/default	byte array	VALUE java.lang.String:{% raw %}(byte[]: &quot;AQID/w==&quot;){% endraw %}
+pprint/default	char	VALUE java.lang.String:{% raw %}(Character: &quot;c&quot;){% endraw %}
+pprint/default	1000 element list	VALUE <length 4941 sha256 81665f65fea4505a>
+pprint/default	30 short strings	VALUE java.lang.String:{% raw %}(ArrayList: [s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s28, s29]){% endraw %}
+pprint/default	bean 3 properties	VALUE java.lang.String:{% raw %}(CamelBean: {\n  &quot;lastName&quot; : &quot;Doe&quot;,\n  &quot;firstName&quot; : &quot;Jane&quot;,\n  &quot;httpStatusCode&quot; : 200\n}){% endraw %}
+pprint/default	bean 6 properties	VALUE <length 260 sha256 aa9fba932494b2c7>
+pprint/default	bean 8 properties	VALUE <length 320 sha256 6b1c9d7b8c6cd7f7>
+pprint/default	bean getURL getXValue	VALUE java.lang.String:{% raw %}(AcronymBean: {\n  &quot;url&quot; : &quot;http://x/y&quot;,\n  &quot;xvalue&quot; : 7,\n  &quot;name&quot; : &quot;n&quot;\n}){% endraw %}
+pprint/default	bean public field and is-getter	VALUE <length 236 sha256 8e4b41a50c12567a>
+pprint/default	bean without properties	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	empty bean	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	bean with NullValue property	VALUE java.lang.String:{% raw %}(NullValueBean: {\n  &quot;n&quot; : null\n}){% endraw %}
+pprint/default	list of beans	VALUE <length 203 sha256 9328aa37b22bde24>
+pprint/default	map holding a bean	VALUE java.lang.String:{% raw %}(LinkedHashMap: {s=com.hubspot.jinjava.testobjects.GoldenTestObjects$SmallBean@<identity-hash>}){% endraw %}
+pprint/default	enum with toString override	VALUE java.lang.String:{% raw %}(Color: &quot;RED&quot;){% endraw %}
+pprint/default	Date	VALUE java.lang.String:{% raw %}(Date: 0){% endraw %}
+pprint/default	Instant	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	ZonedDateTime	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	LocalDate	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	Duration	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	Instant in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {i=1970-01-01T00:00:00Z}){% endraw %}
+pprint/default	LocalDate in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {d=2020-01-02}){% endraw %}
+pprint/default	Duration in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {d=PT1M30S}){% endraw %}
+pprint/default	Locale	VALUE java.lang.String:{% raw %}(Locale: &quot;en_US&quot;){% endraw %}
+pprint/default	Locale in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {l=en_US}){% endraw %}
+pprint/default	PyishDate	VALUE java.lang.String:{% raw %}(PyishDate: 2020-02-29 13:14:15){% endraw %}
+pprint/default	Optional present	VALUE java.lang.String:{% raw %}(Optional: &quot;x&quot;){% endraw %}
+pprint/default	Optional empty	VALUE java.lang.String:{% raw %}(Optional: null){% endraw %}
+pprint/default	OptionalInt	VALUE java.lang.String:{% raw %}(OptionalInt: 3){% endraw %}
+pprint/default	null	VALUE java.lang.String:null
+pprint/default	NullValue	VALUE java.lang.String:{% raw %}(NullValue: null){% endraw %}
+pprint/default	NullValue in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {n=null}){% endraw %}
+pprint/default	NullValue in list	VALUE java.lang.String:{% raw %}(ArrayList: [1, null]){% endraw %}
+pprint/default	string with slash	VALUE java.lang.String:{% raw %}(String: a/b){% endraw %}
+pprint/default	string with script end tag	VALUE java.lang.String:{% raw %}(String: &lt;/script&gt;){% endraw %}
+pprint/default	string e acute	VALUE java.lang.String:{% raw %}(String: \u00e9){% endraw %}
+pprint/default	string emoji	VALUE java.lang.String:{% raw %}(String: \ud83c\udf89){% endraw %}
+pprint/default	string control character	VALUE java.lang.String:{% raw %}(String: \u0001){% endraw %}
+pprint/default	string line separator	VALUE java.lang.String:{% raw %}(String: \u2028){% endraw %}
+pprint/default	string space	VALUE java.lang.String:{% raw %}(String:  ){% endraw %}
+pprint/default	string with quote	VALUE java.lang.String:{% raw %}(String: &quot;quote&quot;){% endraw %}
+pprint/default	string with apostrophe newline tab backslash	VALUE java.lang.String:{% raw %}(String: it&#39;s\n\t\\ end){% endraw %}
+pprint/default	long string	VALUE <length 10048 sha256 4caa8942091b81c4>
+pprint/default	BigDecimal 1.10	VALUE java.lang.String:{% raw %}(BigDecimal: 1.10){% endraw %}
+pprint/default	BigDecimal 1E+3	VALUE java.lang.String:{% raw %}(BigDecimal: 1E+3){% endraw %}
+pprint/default	BigInteger	VALUE java.lang.String:{% raw %}(BigInteger: 12345678901234567890){% endraw %}
+pprint/default	Double 1.0	VALUE java.lang.String:{% raw %}(Double: 1.0){% endraw %}
+pprint/default	Double NaN	VALUE java.lang.String:{% raw %}(Double: NaN){% endraw %}
+pprint/default	Double infinity	VALUE java.lang.String:{% raw %}(Double: Infinity){% endraw %}
+pprint/default	Long.MAX_VALUE	VALUE java.lang.String:{% raw %}(Long: 9223372036854775807){% endraw %}
+pprint/default	Float	VALUE java.lang.String:{% raw %}(Float: 1.5){% endraw %}
+pprint/default	SafeString	VALUE java.lang.String:{% raw %}(SafeString: &quot;&lt;b&gt;&quot;){% endraw %}
+pprint/default	LazyExpression evaluated	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;val&quot;){% endraw %}
+pprint/default	LazyExpression not evaluated	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/default	LazyExpression throwing DeferredValueException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/default	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/default	LazyExpression throwing RuntimeException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/default	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/default	Namespace	VALUE java.lang.String:{% raw %}(Namespace: {a=1}){% endraw %}
+pprint/default	SnakeCaseAccessibleMap	VALUE java.lang.String:{% raw %}(SnakeCaseAccessibleMap: {fooBar=1}){% endraw %}
+pprint/default	SizeLimitingPyMap	VALUE java.lang.String:{% raw %}(SizeLimitingPyMap: {a=1}){% endraw %}
+pprint/default	PyList	VALUE java.lang.String:{% raw %}(PyList: [1, a]){% endraw %}
+pprint/default	NamedParameter	VALUE java.lang.String:{% raw %}(NamedParameter: {\n  &quot;name&quot; : &quot;n&quot;,\n  &quot;value&quot; : &quot;v&quot;\n}){% endraw %}
+pprint/default	Map.Entry	VALUE java.lang.String:{% raw %}(SimpleEntry: {\n  &quot;k&quot; : &quot;v&quot;\n}){% endraw %}
+pprint/default	self-referencing list	VALUE java.lang.String:{% raw %}(ArrayList: [(this Collection)]){% endraw %}
+pprint/default	self-referencing map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {self={self=(this Map)}}){% endraw %}
+pprint/default	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	bean getter throwing DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	bean getter throwing OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	nested bean getter throwing DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	nested bean getter throwing OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/default	nested value method throwing DeferredValueException	VALUE java.lang.String:{% raw %}(LinkedHashMap: {v=com.hubspot.jinjava.testobjects.JsonOutcomeTestObjects$ThrowingJsonValue@<identity-hash>}){% endraw %}
+pprint/default	root list throwing DeferredValueException	DEFERRED list
+pprint/default	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+pprint/default	root list throwing RuntimeException	OTHER java.lang.IllegalStateException
+pprint/default	root list throwing wrapped DeferredValueException	OTHER java.lang.RuntimeException
+pprint/default	root list throwing wrapped OutputTooBigException	OTHER java.lang.RuntimeException
+pprint/default	nested list throwing DeferredValueException	DEFERRED list
+pprint/default	600 nested lists	VALUE <length 1253 sha256 d0bb7555fb04e96c>
+pprint/default	501 nested lists	VALUE <length 1055 sha256 7c4137d3bf15fd47>
+pprint/default	1000 nested lists	VALUE <length 2053 sha256 c6f3b6256615086c>
+pprint/default	1001 nested lists	VALUE <length 2055 sha256 4246bff523d70f56>
+pprint/default	20 levels with strings	VALUE <length 654 sha256 707b384c055f3cca>
+pprint/default	20 levels with strings and self reference	OTHER java.lang.StackOverflowError
+fromjson/default	object	VALUE java.util.LinkedHashMap:{a=1}
+fromjson/default	array	VALUE java.util.ArrayList:[1, 2]
+fromjson/default	object with trailing token	VALUE java.util.LinkedHashMap:{a=1}
+fromjson/default	two arrays	VALUE java.util.ArrayList:[1]
+fromjson/default	1.0	VALUE java.lang.Double:1.0
+fromjson/default	1e400	VALUE java.lang.Double:Infinity
+fromjson/default	1e2	VALUE java.lang.Double:100.0
+fromjson/default	big integer	VALUE java.math.BigInteger:12345678901234567890
+fromjson/default	big integer in object	VALUE java.util.LinkedHashMap:{a=1234567890123456789012345678901234567890}
+fromjson/default	0.1	VALUE java.lang.Double:0.1
+fromjson/default	e acute	VALUE java.lang.String:\u00e9
+fromjson/default	escaped slash	VALUE java.lang.String:x/y
+fromjson/default	truncated literal	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	NaN in object	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	duplicate keys	VALUE java.util.LinkedHashMap:{a=2}
+fromjson/default	null	VALUE null
+fromjson/default	empty string	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	comment	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	single quotes	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	unquoted name	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	trailing comma in array	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	trailing comma in object	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/default	501 nested arrays	VALUE <length 1022 sha256 b2d7506bd97c60e5>
+fromjson/default	1000 nested arrays	VALUE <length 2020 sha256 951c5e7d41fc354c>
+fromjson/default	1001 nested arrays	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+tojson/snake/nolimit	LinkedHashMap	VALUE java.lang.String:{"b":1,"a":2}
+tojson/snake/nolimit	HashMap mixed keys	VALUE java.lang.String:{"2":"two","s":1,"3":"three","c":"ch","1.5":"d","true":"t"}
+tojson/snake/nolimit	map with null value	VALUE java.lang.String:{"a":null,"b":1}
+tojson/snake/nolimit	map with null key	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	Guava ImmutableMap	VALUE java.lang.String:{"z":1,"y":2}
+tojson/snake/nolimit	list	VALUE java.lang.String:[1,"two",3.0,null]
+tojson/snake/nolimit	int array	VALUE java.lang.String:[1,2,3]
+tojson/snake/nolimit	byte array	VALUE java.lang.String:"AQID/w=="
+tojson/snake/nolimit	char	VALUE java.lang.String:"c"
+tojson/snake/nolimit	1000 element list	VALUE <length 3908 sha256 88abef98e708e074>
+tojson/snake/nolimit	30 short strings	VALUE java.lang.String:["s0","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10","s11","s12","s13","s14","s15","s16","s17","s18","s19","s20","s21","s22","s23","s24","s25","s26","s27","s28","s29"]
+tojson/snake/nolimit	bean 3 properties	VALUE java.lang.String:{"last_name":"Doe","first_name":"Jane","http_status_code":200}
+tojson/snake/nolimit	bean 6 properties	VALUE java.lang.String:{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}
+tojson/snake/nolimit	bean 8 properties	VALUE java.lang.String:{"zulu":"z","alpha":1,"yankee":"y","bravo":2,"xray":false,"charlie":"c","whiskey":[3,2,1],"delta":"GREEN"}
+tojson/snake/nolimit	bean getURL getXValue	VALUE java.lang.String:{"url":"http://x/y","xvalue":7,"name":"n"}
+tojson/snake/nolimit	bean public field and is-getter	VALUE java.lang.String:{"pub_field":"pf","url":"u","xvalue":"x","active":true,"mid_value":"m"}
+tojson/snake/nolimit	bean without properties	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	empty bean	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	bean with NullValue property	VALUE java.lang.String:{"n":null}
+tojson/snake/nolimit	list of beans	VALUE <length 204 sha256 4ba4c72b0cf4a46b>
+tojson/snake/nolimit	map holding a bean	VALUE java.lang.String:{"s":{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}}
+tojson/snake/nolimit	enum with toString override	VALUE java.lang.String:"RED"
+tojson/snake/nolimit	Date	VALUE java.lang.String:0
+tojson/snake/nolimit	Instant	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	ZonedDateTime	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	LocalDate	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	Duration	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	Instant in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	LocalDate in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	Duration in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	Locale	VALUE java.lang.String:"en_US"
+tojson/snake/nolimit	Locale in map	VALUE java.lang.String:{"l":"en_US"}
+tojson/snake/nolimit	PyishDate	VALUE java.lang.String:1582982055123
+tojson/snake/nolimit	Optional present	VALUE java.lang.String:"x"
+tojson/snake/nolimit	Optional empty	VALUE java.lang.String:null
+tojson/snake/nolimit	OptionalInt	VALUE java.lang.String:3
+tojson/snake/nolimit	null	VALUE java.lang.String:null
+tojson/snake/nolimit	NullValue	VALUE java.lang.String:null
+tojson/snake/nolimit	NullValue in map	VALUE java.lang.String:{"n":null}
+tojson/snake/nolimit	NullValue in list	VALUE java.lang.String:[1,null]
+tojson/snake/nolimit	string with slash	VALUE java.lang.String:"a/b"
+tojson/snake/nolimit	string with script end tag	VALUE java.lang.String:"</script>"
+tojson/snake/nolimit	string e acute	VALUE java.lang.String:"\u00e9"
+tojson/snake/nolimit	string emoji	VALUE java.lang.String:"\ud83c\udf89"
+tojson/snake/nolimit	string control character	VALUE java.lang.String:"\\u0001"
+tojson/snake/nolimit	string line separator	VALUE java.lang.String:"\u2028"
+tojson/snake/nolimit	string space	VALUE java.lang.String:" "
+tojson/snake/nolimit	string with quote	VALUE java.lang.String:"\\"quote\\""
+tojson/snake/nolimit	string with apostrophe newline tab backslash	VALUE java.lang.String:"it's\\n\\t\\\\ end"
+tojson/snake/nolimit	long string	VALUE <length 10019 sha256 09bcf3bfdfbe2b5d>
+tojson/snake/nolimit	BigDecimal 1.10	VALUE java.lang.String:1.10
+tojson/snake/nolimit	BigDecimal 1E+3	VALUE java.lang.String:1E+3
+tojson/snake/nolimit	BigInteger	VALUE java.lang.String:12345678901234567890
+tojson/snake/nolimit	Double 1.0	VALUE java.lang.String:1.0
+tojson/snake/nolimit	Double NaN	VALUE java.lang.String:"NaN"
+tojson/snake/nolimit	Double infinity	VALUE java.lang.String:"Infinity"
+tojson/snake/nolimit	Long.MAX_VALUE	VALUE java.lang.String:9223372036854775807
+tojson/snake/nolimit	Float	VALUE java.lang.String:1.5
+tojson/snake/nolimit	SafeString	VALUE java.lang.String:"<b>"
+tojson/snake/nolimit	LazyExpression evaluated	VALUE java.lang.String:"val"
+tojson/snake/nolimit	LazyExpression not evaluated	VALUE java.lang.String:""
+tojson/snake/nolimit	LazyExpression throwing DeferredValueException	VALUE java.lang.String:""
+tojson/snake/nolimit	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:""
+tojson/snake/nolimit	LazyExpression throwing RuntimeException	VALUE java.lang.String:""
+tojson/snake/nolimit	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:""
+tojson/snake/nolimit	Namespace	VALUE java.lang.String:{"a":1}
+tojson/snake/nolimit	SnakeCaseAccessibleMap	VALUE java.lang.String:{"fooBar":1}
+tojson/snake/nolimit	SizeLimitingPyMap	VALUE java.lang.String:{"a":1}
+tojson/snake/nolimit	PyList	VALUE java.lang.String:[1,"a"]
+tojson/snake/nolimit	NamedParameter	VALUE java.lang.String:{"name":"n","value":"v"}
+tojson/snake/nolimit	Map.Entry	VALUE java.lang.String:{"k":"v"}
+tojson/snake/nolimit	self-referencing list	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	self-referencing map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	bean getter throwing DeferredValueException	DEFERRED x
+tojson/snake/nolimit	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/nolimit	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	nested bean getter throwing DeferredValueException	DEFERRED x
+tojson/snake/nolimit	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	nested bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/nolimit	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	nested value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root list throwing DeferredValueException	DEFERRED list
+tojson/snake/nolimit	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/nolimit	root list throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root list throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	root list throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	nested list throwing DeferredValueException	DEFERRED list
+tojson/snake/nolimit	600 nested lists	VALUE <length 1219 sha256 2d33ce7f27b7b9f5>
+tojson/snake/nolimit	501 nested lists	VALUE <length 1021 sha256 0fffc42009919920>
+tojson/snake/nolimit	1000 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	1001 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/nolimit	20 levels with strings	VALUE <length 642 sha256 ede65934fa2d2440>
+tojson/snake/nolimit	20 levels with strings and self reference	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	LinkedHashMap	VALUE java.lang.String:{"b":1,"a":2}
+tojson/snake/limit20	HashMap mixed keys	TOO_BIG 59 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	map with null value	VALUE java.lang.String:{"a":null,"b":1}
+tojson/snake/limit20	map with null key	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	Guava ImmutableMap	VALUE java.lang.String:{"z":1,"y":2}
+tojson/snake/limit20	list	VALUE java.lang.String:[1,"two",3.0,null]
+tojson/snake/limit20	int array	VALUE java.lang.String:[1,2,3]
+tojson/snake/limit20	byte array	VALUE java.lang.String:"AQID/w=="
+tojson/snake/limit20	char	VALUE java.lang.String:"c"
+tojson/snake/limit20	1000 element list	TOO_BIG 3891 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	30 short strings	TOO_BIG 171 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	bean 3 properties	TOO_BIG 62 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	bean 6 properties	TOO_BIG 71 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	bean 8 properties	TOO_BIG 106 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	bean getURL getXValue	TOO_BIG 42 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	bean public field and is-getter	TOO_BIG 71 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	bean without properties	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	empty bean	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	bean with NullValue property	VALUE java.lang.String:{"n":null}
+tojson/snake/limit20	list of beans	TOO_BIG 179 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	map holding a bean	TOO_BIG 76 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	enum with toString override	VALUE java.lang.String:"RED"
+tojson/snake/limit20	Date	VALUE java.lang.String:0
+tojson/snake/limit20	Instant	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	ZonedDateTime	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	LocalDate	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	Duration	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	Instant in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	LocalDate in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	Duration in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	Locale	VALUE java.lang.String:"en_US"
+tojson/snake/limit20	Locale in map	VALUE java.lang.String:{"l":"en_US"}
+tojson/snake/limit20	PyishDate	VALUE java.lang.String:1582982055123
+tojson/snake/limit20	Optional present	VALUE java.lang.String:"x"
+tojson/snake/limit20	Optional empty	VALUE java.lang.String:null
+tojson/snake/limit20	OptionalInt	VALUE java.lang.String:3
+tojson/snake/limit20	null	VALUE java.lang.String:null
+tojson/snake/limit20	NullValue	VALUE java.lang.String:null
+tojson/snake/limit20	NullValue in map	VALUE java.lang.String:{"n":null}
+tojson/snake/limit20	NullValue in list	VALUE java.lang.String:[1,null]
+tojson/snake/limit20	string with slash	VALUE java.lang.String:"a/b"
+tojson/snake/limit20	string with script end tag	VALUE java.lang.String:"</script>"
+tojson/snake/limit20	string e acute	VALUE java.lang.String:"\u00e9"
+tojson/snake/limit20	string emoji	VALUE java.lang.String:"\ud83c\udf89"
+tojson/snake/limit20	string control character	VALUE java.lang.String:"\\u0001"
+tojson/snake/limit20	string line separator	VALUE java.lang.String:"\u2028"
+tojson/snake/limit20	string space	VALUE java.lang.String:" "
+tojson/snake/limit20	string with quote	VALUE java.lang.String:"\\"quote\\""
+tojson/snake/limit20	string with apostrophe newline tab backslash	VALUE java.lang.String:"it's\\n\\t\\\\ end"
+tojson/snake/limit20	long string	TOO_BIG 4001 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	BigDecimal 1.10	VALUE java.lang.String:1.10
+tojson/snake/limit20	BigDecimal 1E+3	VALUE java.lang.String:1E+3
+tojson/snake/limit20	BigInteger	VALUE java.lang.String:12345678901234567890
+tojson/snake/limit20	Double 1.0	VALUE java.lang.String:1.0
+tojson/snake/limit20	Double NaN	VALUE java.lang.String:"NaN"
+tojson/snake/limit20	Double infinity	VALUE java.lang.String:"Infinity"
+tojson/snake/limit20	Long.MAX_VALUE	VALUE java.lang.String:9223372036854775807
+tojson/snake/limit20	Float	VALUE java.lang.String:1.5
+tojson/snake/limit20	SafeString	VALUE java.lang.String:"<b>"
+tojson/snake/limit20	LazyExpression evaluated	VALUE java.lang.String:"val"
+tojson/snake/limit20	LazyExpression not evaluated	VALUE java.lang.String:""
+tojson/snake/limit20	LazyExpression throwing DeferredValueException	VALUE java.lang.String:""
+tojson/snake/limit20	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:""
+tojson/snake/limit20	LazyExpression throwing RuntimeException	VALUE java.lang.String:""
+tojson/snake/limit20	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:""
+tojson/snake/limit20	Namespace	VALUE java.lang.String:{"a":1}
+tojson/snake/limit20	SnakeCaseAccessibleMap	VALUE java.lang.String:{"fooBar":1}
+tojson/snake/limit20	SizeLimitingPyMap	VALUE java.lang.String:{"a":1}
+tojson/snake/limit20	PyList	VALUE java.lang.String:[1,"a"]
+tojson/snake/limit20	NamedParameter	TOO_BIG 24 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	Map.Entry	VALUE java.lang.String:{"k":"v"}
+tojson/snake/limit20	self-referencing list	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	self-referencing map	TOO_BIG 4000 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	bean getter throwing DeferredValueException	DEFERRED x
+tojson/snake/limit20	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/limit20	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	nested bean getter throwing DeferredValueException	DEFERRED x
+tojson/snake/limit20	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	nested bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/limit20	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	nested value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root list throwing DeferredValueException	DEFERRED list
+tojson/snake/limit20	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/limit20	root list throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root list throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	root list throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	nested list throwing DeferredValueException	DEFERRED list
+tojson/snake/limit20	600 nested lists	TOO_BIG 1202 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	501 nested lists	TOO_BIG 1004 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	1000 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	1001 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit20	20 levels with strings	TOO_BIG 625 byte output rendered, over limit of 20 bytes
+tojson/snake/limit20	20 levels with strings and self reference	TOO_BIG 3992 byte output rendered, over limit of 20 bytes
+tojson/snake/limit10000	LinkedHashMap	VALUE java.lang.String:{"b":1,"a":2}
+tojson/snake/limit10000	HashMap mixed keys	VALUE java.lang.String:{"2":"two","s":1,"3":"three","c":"ch","1.5":"d","true":"t"}
+tojson/snake/limit10000	map with null value	VALUE java.lang.String:{"a":null,"b":1}
+tojson/snake/limit10000	map with null key	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	Guava ImmutableMap	VALUE java.lang.String:{"z":1,"y":2}
+tojson/snake/limit10000	list	VALUE java.lang.String:[1,"two",3.0,null]
+tojson/snake/limit10000	int array	VALUE java.lang.String:[1,2,3]
+tojson/snake/limit10000	byte array	VALUE java.lang.String:"AQID/w=="
+tojson/snake/limit10000	char	VALUE java.lang.String:"c"
+tojson/snake/limit10000	1000 element list	VALUE <length 3908 sha256 88abef98e708e074>
+tojson/snake/limit10000	30 short strings	VALUE java.lang.String:["s0","s1","s2","s3","s4","s5","s6","s7","s8","s9","s10","s11","s12","s13","s14","s15","s16","s17","s18","s19","s20","s21","s22","s23","s24","s25","s26","s27","s28","s29"]
+tojson/snake/limit10000	bean 3 properties	VALUE java.lang.String:{"last_name":"Doe","first_name":"Jane","http_status_code":200}
+tojson/snake/limit10000	bean 6 properties	VALUE java.lang.String:{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}
+tojson/snake/limit10000	bean 8 properties	VALUE java.lang.String:{"zulu":"z","alpha":1,"yankee":"y","bravo":2,"xray":false,"charlie":"c","whiskey":[3,2,1],"delta":"GREEN"}
+tojson/snake/limit10000	bean getURL getXValue	VALUE java.lang.String:{"url":"http://x/y","xvalue":7,"name":"n"}
+tojson/snake/limit10000	bean public field and is-getter	VALUE java.lang.String:{"pub_field":"pf","url":"u","xvalue":"x","active":true,"mid_value":"m"}
+tojson/snake/limit10000	bean without properties	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	empty bean	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	bean with NullValue property	VALUE java.lang.String:{"n":null}
+tojson/snake/limit10000	list of beans	VALUE <length 204 sha256 4ba4c72b0cf4a46b>
+tojson/snake/limit10000	map holding a bean	VALUE java.lang.String:{"s":{"zeta":"z","alpha":1,"middle":"m","active":true,"ratio":1.5,"beta":"b/\\"q\\""}}
+tojson/snake/limit10000	enum with toString override	VALUE java.lang.String:"RED"
+tojson/snake/limit10000	Date	VALUE java.lang.String:0
+tojson/snake/limit10000	Instant	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	ZonedDateTime	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	LocalDate	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	Duration	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	Instant in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	LocalDate in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	Duration in map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	Locale	VALUE java.lang.String:"en_US"
+tojson/snake/limit10000	Locale in map	VALUE java.lang.String:{"l":"en_US"}
+tojson/snake/limit10000	PyishDate	VALUE java.lang.String:1582982055123
+tojson/snake/limit10000	Optional present	VALUE java.lang.String:"x"
+tojson/snake/limit10000	Optional empty	VALUE java.lang.String:null
+tojson/snake/limit10000	OptionalInt	VALUE java.lang.String:3
+tojson/snake/limit10000	null	VALUE java.lang.String:null
+tojson/snake/limit10000	NullValue	VALUE java.lang.String:null
+tojson/snake/limit10000	NullValue in map	VALUE java.lang.String:{"n":null}
+tojson/snake/limit10000	NullValue in list	VALUE java.lang.String:[1,null]
+tojson/snake/limit10000	string with slash	VALUE java.lang.String:"a/b"
+tojson/snake/limit10000	string with script end tag	VALUE java.lang.String:"</script>"
+tojson/snake/limit10000	string e acute	VALUE java.lang.String:"\u00e9"
+tojson/snake/limit10000	string emoji	VALUE java.lang.String:"\ud83c\udf89"
+tojson/snake/limit10000	string control character	VALUE java.lang.String:"\\u0001"
+tojson/snake/limit10000	string line separator	VALUE java.lang.String:"\u2028"
+tojson/snake/limit10000	string space	VALUE java.lang.String:" "
+tojson/snake/limit10000	string with quote	VALUE java.lang.String:"\\"quote\\""
+tojson/snake/limit10000	string with apostrophe newline tab backslash	VALUE java.lang.String:"it's\\n\\t\\\\ end"
+tojson/snake/limit10000	long string	TOO_BIG 10001 byte output rendered, over limit of 10000 bytes
+tojson/snake/limit10000	BigDecimal 1.10	VALUE java.lang.String:1.10
+tojson/snake/limit10000	BigDecimal 1E+3	VALUE java.lang.String:1E+3
+tojson/snake/limit10000	BigInteger	VALUE java.lang.String:12345678901234567890
+tojson/snake/limit10000	Double 1.0	VALUE java.lang.String:1.0
+tojson/snake/limit10000	Double NaN	VALUE java.lang.String:"NaN"
+tojson/snake/limit10000	Double infinity	VALUE java.lang.String:"Infinity"
+tojson/snake/limit10000	Long.MAX_VALUE	VALUE java.lang.String:9223372036854775807
+tojson/snake/limit10000	Float	VALUE java.lang.String:1.5
+tojson/snake/limit10000	SafeString	VALUE java.lang.String:"<b>"
+tojson/snake/limit10000	LazyExpression evaluated	VALUE java.lang.String:"val"
+tojson/snake/limit10000	LazyExpression not evaluated	VALUE java.lang.String:""
+tojson/snake/limit10000	LazyExpression throwing DeferredValueException	VALUE java.lang.String:""
+tojson/snake/limit10000	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:""
+tojson/snake/limit10000	LazyExpression throwing RuntimeException	VALUE java.lang.String:""
+tojson/snake/limit10000	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:""
+tojson/snake/limit10000	Namespace	VALUE java.lang.String:{"a":1}
+tojson/snake/limit10000	SnakeCaseAccessibleMap	VALUE java.lang.String:{"fooBar":1}
+tojson/snake/limit10000	SizeLimitingPyMap	VALUE java.lang.String:{"a":1}
+tojson/snake/limit10000	PyList	VALUE java.lang.String:[1,"a"]
+tojson/snake/limit10000	NamedParameter	VALUE java.lang.String:{"name":"n","value":"v"}
+tojson/snake/limit10000	Map.Entry	VALUE java.lang.String:{"k":"v"}
+tojson/snake/limit10000	self-referencing list	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	self-referencing map	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	bean getter throwing DeferredValueException	DEFERRED x
+tojson/snake/limit10000	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/limit10000	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	nested bean getter throwing DeferredValueException	DEFERRED x
+tojson/snake/limit10000	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	nested bean getter throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/limit10000	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	nested value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root list throwing DeferredValueException	DEFERRED list
+tojson/snake/limit10000	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+tojson/snake/limit10000	root list throwing RuntimeException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root list throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	root list throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	nested list throwing DeferredValueException	DEFERRED list
+tojson/snake/limit10000	600 nested lists	VALUE <length 1219 sha256 2d33ce7f27b7b9f5>
+tojson/snake/limit10000	501 nested lists	VALUE <length 1021 sha256 0fffc42009919920>
+tojson/snake/limit10000	1000 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	1001 nested lists	INVALID_INPUT Invalid input for 'tojson': input object could not be written as a string
+tojson/snake/limit10000	20 levels with strings	VALUE <length 642 sha256 ede65934fa2d2440>
+tojson/snake/limit10000	20 levels with strings and self reference	TOO_BIG 11977 byte output rendered, over limit of 10000 bytes
+pprint/snake	LinkedHashMap	VALUE java.lang.String:{% raw %}(LinkedHashMap: {a=2, b=1}){% endraw %}
+pprint/snake	HashMap mixed keys	OTHER java.lang.ClassCastException
+pprint/snake	map with null value	VALUE java.lang.String:{% raw %}(LinkedHashMap: {a=null, b=1}){% endraw %}
+pprint/snake	map with null key	OTHER java.lang.NullPointerException
+pprint/snake	Guava ImmutableMap	VALUE java.lang.String:{% raw %}(RegularImmutableMap: {y=2, z=1}){% endraw %}
+pprint/snake	list	VALUE java.lang.String:{% raw %}(ArrayList: [1, two, 3.0, null]){% endraw %}
+pprint/snake	int array	VALUE java.lang.String:{% raw %}(int[]: [ 1, 2, 3 ]){% endraw %}
+pprint/snake	byte array	VALUE java.lang.String:{% raw %}(byte[]: &quot;AQID/w==&quot;){% endraw %}
+pprint/snake	char	VALUE java.lang.String:{% raw %}(Character: &quot;c&quot;){% endraw %}
+pprint/snake	1000 element list	VALUE <length 4941 sha256 81665f65fea4505a>
+pprint/snake	30 short strings	VALUE java.lang.String:{% raw %}(ArrayList: [s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s28, s29]){% endraw %}
+pprint/snake	bean 3 properties	VALUE java.lang.String:{% raw %}(CamelBean: {\n  &quot;last_name&quot; : &quot;Doe&quot;,\n  &quot;first_name&quot; : &quot;Jane&quot;,\n  &quot;http_status_code&quot; : 200\n}){% endraw %}
+pprint/snake	bean 6 properties	VALUE <length 260 sha256 aa9fba932494b2c7>
+pprint/snake	bean 8 properties	VALUE <length 320 sha256 6b1c9d7b8c6cd7f7>
+pprint/snake	bean getURL getXValue	VALUE java.lang.String:{% raw %}(AcronymBean: {\n  &quot;url&quot; : &quot;http://x/y&quot;,\n  &quot;xvalue&quot; : 7,\n  &quot;name&quot; : &quot;n&quot;\n}){% endraw %}
+pprint/snake	bean public field and is-getter	VALUE <length 238 sha256 295bc81c7d6bc019>
+pprint/snake	bean without properties	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	empty bean	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	bean with NullValue property	VALUE java.lang.String:{% raw %}(NullValueBean: {\n  &quot;n&quot; : null\n}){% endraw %}
+pprint/snake	list of beans	VALUE <length 203 sha256 9328aa37b22bde24>
+pprint/snake	map holding a bean	VALUE java.lang.String:{% raw %}(LinkedHashMap: {s=com.hubspot.jinjava.testobjects.GoldenTestObjects$SmallBean@<identity-hash>}){% endraw %}
+pprint/snake	enum with toString override	VALUE java.lang.String:{% raw %}(Color: &quot;RED&quot;){% endraw %}
+pprint/snake	Date	VALUE java.lang.String:{% raw %}(Date: 0){% endraw %}
+pprint/snake	Instant	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	ZonedDateTime	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	LocalDate	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	Duration	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	Instant in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {i=1970-01-01T00:00:00Z}){% endraw %}
+pprint/snake	LocalDate in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {d=2020-01-02}){% endraw %}
+pprint/snake	Duration in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {d=PT1M30S}){% endraw %}
+pprint/snake	Locale	VALUE java.lang.String:{% raw %}(Locale: &quot;en_US&quot;){% endraw %}
+pprint/snake	Locale in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {l=en_US}){% endraw %}
+pprint/snake	PyishDate	VALUE java.lang.String:{% raw %}(PyishDate: 2020-02-29 13:14:15){% endraw %}
+pprint/snake	Optional present	VALUE java.lang.String:{% raw %}(Optional: &quot;x&quot;){% endraw %}
+pprint/snake	Optional empty	VALUE java.lang.String:{% raw %}(Optional: null){% endraw %}
+pprint/snake	OptionalInt	VALUE java.lang.String:{% raw %}(OptionalInt: 3){% endraw %}
+pprint/snake	null	VALUE java.lang.String:null
+pprint/snake	NullValue	VALUE java.lang.String:{% raw %}(NullValue: null){% endraw %}
+pprint/snake	NullValue in map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {n=null}){% endraw %}
+pprint/snake	NullValue in list	VALUE java.lang.String:{% raw %}(ArrayList: [1, null]){% endraw %}
+pprint/snake	string with slash	VALUE java.lang.String:{% raw %}(String: a/b){% endraw %}
+pprint/snake	string with script end tag	VALUE java.lang.String:{% raw %}(String: &lt;/script&gt;){% endraw %}
+pprint/snake	string e acute	VALUE java.lang.String:{% raw %}(String: \u00e9){% endraw %}
+pprint/snake	string emoji	VALUE java.lang.String:{% raw %}(String: \ud83c\udf89){% endraw %}
+pprint/snake	string control character	VALUE java.lang.String:{% raw %}(String: \u0001){% endraw %}
+pprint/snake	string line separator	VALUE java.lang.String:{% raw %}(String: \u2028){% endraw %}
+pprint/snake	string space	VALUE java.lang.String:{% raw %}(String:  ){% endraw %}
+pprint/snake	string with quote	VALUE java.lang.String:{% raw %}(String: &quot;quote&quot;){% endraw %}
+pprint/snake	string with apostrophe newline tab backslash	VALUE java.lang.String:{% raw %}(String: it&#39;s\n\t\\ end){% endraw %}
+pprint/snake	long string	VALUE <length 10048 sha256 4caa8942091b81c4>
+pprint/snake	BigDecimal 1.10	VALUE java.lang.String:{% raw %}(BigDecimal: 1.10){% endraw %}
+pprint/snake	BigDecimal 1E+3	VALUE java.lang.String:{% raw %}(BigDecimal: 1E+3){% endraw %}
+pprint/snake	BigInteger	VALUE java.lang.String:{% raw %}(BigInteger: 12345678901234567890){% endraw %}
+pprint/snake	Double 1.0	VALUE java.lang.String:{% raw %}(Double: 1.0){% endraw %}
+pprint/snake	Double NaN	VALUE java.lang.String:{% raw %}(Double: NaN){% endraw %}
+pprint/snake	Double infinity	VALUE java.lang.String:{% raw %}(Double: Infinity){% endraw %}
+pprint/snake	Long.MAX_VALUE	VALUE java.lang.String:{% raw %}(Long: 9223372036854775807){% endraw %}
+pprint/snake	Float	VALUE java.lang.String:{% raw %}(Float: 1.5){% endraw %}
+pprint/snake	SafeString	VALUE java.lang.String:{% raw %}(SafeString: &quot;&lt;b&gt;&quot;){% endraw %}
+pprint/snake	LazyExpression evaluated	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;val&quot;){% endraw %}
+pprint/snake	LazyExpression not evaluated	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/snake	LazyExpression throwing DeferredValueException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/snake	LazyExpression throwing OutputTooBigException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/snake	LazyExpression throwing RuntimeException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/snake	LazyExpression throwing wrapped DeferredValueException	VALUE java.lang.String:{% raw %}(LazyExpression: &quot;&quot;){% endraw %}
+pprint/snake	Namespace	VALUE java.lang.String:{% raw %}(Namespace: {a=1}){% endraw %}
+pprint/snake	SnakeCaseAccessibleMap	VALUE java.lang.String:{% raw %}(SnakeCaseAccessibleMap: {fooBar=1}){% endraw %}
+pprint/snake	SizeLimitingPyMap	VALUE java.lang.String:{% raw %}(SizeLimitingPyMap: {a=1}){% endraw %}
+pprint/snake	PyList	VALUE java.lang.String:{% raw %}(PyList: [1, a]){% endraw %}
+pprint/snake	NamedParameter	VALUE java.lang.String:{% raw %}(NamedParameter: {\n  &quot;name&quot; : &quot;n&quot;,\n  &quot;value&quot; : &quot;v&quot;\n}){% endraw %}
+pprint/snake	Map.Entry	VALUE java.lang.String:{% raw %}(SimpleEntry: {\n  &quot;k&quot; : &quot;v&quot;\n}){% endraw %}
+pprint/snake	self-referencing list	VALUE java.lang.String:{% raw %}(ArrayList: [(this Collection)]){% endraw %}
+pprint/snake	self-referencing map	VALUE java.lang.String:{% raw %}(LinkedHashMap: {self={self=(this Map)}}){% endraw %}
+pprint/snake	bean getter throwing RuntimeException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	bean getter throwing DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	bean getter throwing OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	nested bean getter throwing DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	nested bean getter throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	nested bean getter throwing OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	nested bean getter throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	root value method throwing DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	root value method throwing OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	root value method throwing RuntimeException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	root value method throwing wrapped DeferredValueException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	root value method throwing wrapped OutputTooBigException	INVALID_INPUT Invalid input for 'pprint': input object could not be written as a string
+pprint/snake	nested value method throwing DeferredValueException	VALUE java.lang.String:{% raw %}(LinkedHashMap: {v=com.hubspot.jinjava.testobjects.JsonOutcomeTestObjects$ThrowingJsonValue@<identity-hash>}){% endraw %}
+pprint/snake	root list throwing DeferredValueException	DEFERRED list
+pprint/snake	root list throwing OutputTooBigException	TOO_BIG 20 byte output rendered, over limit of 10 bytes
+pprint/snake	root list throwing RuntimeException	OTHER java.lang.IllegalStateException
+pprint/snake	root list throwing wrapped DeferredValueException	OTHER java.lang.RuntimeException
+pprint/snake	root list throwing wrapped OutputTooBigException	OTHER java.lang.RuntimeException
+pprint/snake	nested list throwing DeferredValueException	DEFERRED list
+pprint/snake	600 nested lists	VALUE <length 1253 sha256 d0bb7555fb04e96c>
+pprint/snake	501 nested lists	VALUE <length 1055 sha256 7c4137d3bf15fd47>
+pprint/snake	1000 nested lists	VALUE <length 2053 sha256 c6f3b6256615086c>
+pprint/snake	1001 nested lists	VALUE <length 2055 sha256 4246bff523d70f56>
+pprint/snake	20 levels with strings	VALUE <length 654 sha256 707b384c055f3cca>
+pprint/snake	20 levels with strings and self reference	OTHER java.lang.StackOverflowError
+fromjson/snake	object	VALUE java.util.LinkedHashMap:{a=1}
+fromjson/snake	array	VALUE java.util.ArrayList:[1, 2]
+fromjson/snake	object with trailing token	VALUE java.util.LinkedHashMap:{a=1}
+fromjson/snake	two arrays	VALUE java.util.ArrayList:[1]
+fromjson/snake	1.0	VALUE java.lang.Double:1.0
+fromjson/snake	1e400	VALUE java.lang.Double:Infinity
+fromjson/snake	1e2	VALUE java.lang.Double:100.0
+fromjson/snake	big integer	VALUE java.math.BigInteger:12345678901234567890
+fromjson/snake	big integer in object	VALUE java.util.LinkedHashMap:{a=1234567890123456789012345678901234567890}
+fromjson/snake	0.1	VALUE java.lang.Double:0.1
+fromjson/snake	e acute	VALUE java.lang.String:\u00e9
+fromjson/snake	escaped slash	VALUE java.lang.String:x/y
+fromjson/snake	truncated literal	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	NaN in object	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	duplicate keys	VALUE java.util.LinkedHashMap:{a=2}
+fromjson/snake	null	VALUE null
+fromjson/snake	empty string	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	comment	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	single quotes	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	unquoted name	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	trailing comma in array	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	trailing comma in object	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
+fromjson/snake	501 nested arrays	VALUE <length 1022 sha256 b2d7506bd97c60e5>
+fromjson/snake	1000 nested arrays	VALUE <length 2020 sha256 951c5e7d41fc354c>
+fromjson/snake	1001 nested arrays	INVALID_INPUT Invalid input for 'fromjson': input could not be converted to an object
