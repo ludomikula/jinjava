@@ -14,8 +14,9 @@ public class BannedAllowlistOptions {
     Method.class.getPackage().getName(); // java.lang.reflect
   // The Jackson 2 package stays banned for good: Jackson 2 databind remains on the classpath
   // through other dependencies even after jinjava itself no longer uses it.
-  private static final String JACKSON_DATABIND_PACKAGE =
-    com.fasterxml.jackson.databind.ObjectMapper.class.getPackage().getName(); // com.fasterxml.jackson.databind
+  // It is a string literal because jinjava no longer compiles against Jackson 2.
+  private static final String JACKSON2_DATABIND_PACKAGE =
+    "com.fasterxml.jackson.databind";
   private static final String JACKSON3_DATABIND_PACKAGE =
     tools.jackson.databind.ObjectMapper.class.getPackage().getName(); // tools.jackson.databind
 
@@ -23,7 +24,7 @@ public class BannedAllowlistOptions {
     Class.class.getCanonicalName(),
     Object.class.getCanonicalName(),
     JAVA_LANG_REFLECT_PACKAGE,
-    JACKSON_DATABIND_PACKAGE,
+    JACKSON2_DATABIND_PACKAGE,
     JACKSON3_DATABIND_PACKAGE,
   };
 

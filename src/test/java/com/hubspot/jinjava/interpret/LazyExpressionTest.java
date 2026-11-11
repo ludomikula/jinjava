@@ -3,34 +3,34 @@ package com.hubspot.jinjava.interpret;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import com.hubspot.jinjava.interpret.LazyExpression.Memoization;
 import java.util.List;
 import org.junit.Test;
+import tools.jackson.databind.json.JsonMapper;
 
 public class LazyExpressionTest {
 
   @Test
-  public void itSerializesUnderlyingValue() throws JsonProcessingException {
+  public void itSerializesUnderlyingValue() {
     LazyExpression expression = LazyExpression.of(
       () -> ImmutableMap.of("test", "hello", "test2", "hello2"),
       "{}"
     );
     Object evaluated = expression.get();
     assertThat(evaluated).isNotNull();
-    assertThat(new ObjectMapper().writeValueAsString(expression))
+    assertThat(JsonMapper.builder().build().writeValueAsString(expression))
       .isEqualTo("{\"test\":\"hello\",\"test2\":\"hello2\"}");
   }
 
   @Test
-  public void itSerializesNonEvaluatedValueToEmpty() throws JsonProcessingException {
+  public void itSerializesNonEvaluatedValueToEmpty() {
     LazyExpression expression = LazyExpression.of(
       () -> ImmutableMap.of("test", "hello", "test2", "hello2"),
       "{}"
     );
-    assertThat(new ObjectMapper().writeValueAsString(expression)).isEqualTo("\"\"");
+    assertThat(JsonMapper.builder().build().writeValueAsString(expression))
+      .isEqualTo("\"\"");
   }
 
   @Test

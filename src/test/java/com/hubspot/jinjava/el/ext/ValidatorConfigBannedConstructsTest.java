@@ -2,7 +2,6 @@ package com.hubspot.jinjava.el.ext;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hubspot.jinjava.interpret.JinjavaInterpreter;
 import com.hubspot.jinjava.lib.exptest.ExpTest;
 import com.hubspot.jinjava.lib.filter.Filter;
@@ -10,6 +9,13 @@ import java.lang.reflect.Method;
 import org.junit.Test;
 
 public class ValidatorConfigBannedConstructsTest {
+
+  // Jackson 2 is not a compile-time dependency any more (it is only on the runtime classpath
+  // through other dependencies), so its banned names are spelled out.
+  private static final String JACKSON2_DATABIND_PACKAGE =
+    "com.fasterxml.jackson.databind";
+  private static final String JACKSON2_OBJECT_MAPPER_NAME =
+    JACKSON2_DATABIND_PACKAGE + ".ObjectMapper";
 
   // MethodValidatorConfig: allowedMethods() path
 
@@ -68,9 +74,7 @@ public class ValidatorConfigBannedConstructsTest {
     assertThatThrownBy(() ->
         MethodValidatorConfig
           .builder()
-          .addAllowedDeclaredMethodsFromCanonicalClassNames(
-            ObjectMapper.class.getCanonicalName()
-          )
+          .addAllowedDeclaredMethodsFromCanonicalClassNames(JACKSON2_OBJECT_MAPPER_NAME)
           .build()
       )
       .isInstanceOf(IllegalStateException.class)
@@ -126,9 +130,7 @@ public class ValidatorConfigBannedConstructsTest {
     assertThatThrownBy(() ->
         MethodValidatorConfig
           .builder()
-          .addAllowedDeclaredMethodsFromCanonicalClassPrefixes(
-            ObjectMapper.class.getPackageName()
-          )
+          .addAllowedDeclaredMethodsFromCanonicalClassPrefixes(JACKSON2_DATABIND_PACKAGE)
           .build()
       )
       .isInstanceOf(IllegalStateException.class)
@@ -208,7 +210,7 @@ public class ValidatorConfigBannedConstructsTest {
     assertThatThrownBy(() ->
         ReturnTypeValidatorConfig
           .builder()
-          .addAllowedCanonicalClassNames(ObjectMapper.class.getCanonicalName())
+          .addAllowedCanonicalClassNames(JACKSON2_OBJECT_MAPPER_NAME)
           .build()
       )
       .isInstanceOf(IllegalStateException.class)
@@ -260,7 +262,7 @@ public class ValidatorConfigBannedConstructsTest {
     assertThatThrownBy(() ->
         ReturnTypeValidatorConfig
           .builder()
-          .addAllowedCanonicalClassPrefixes(ObjectMapper.class.getPackageName())
+          .addAllowedCanonicalClassPrefixes(JACKSON2_DATABIND_PACKAGE)
           .build()
       )
       .isInstanceOf(IllegalStateException.class)
