@@ -1,6 +1,7 @@
 package com.hubspot.jinjava.lib.filter;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Java6Assertions.assertThatThrownBy;
 
 import com.hubspot.jinjava.BaseInterpretingTest;
 import com.hubspot.jinjava.BaseJinjavaTest;
@@ -52,10 +53,7 @@ public class ToJsonFilterTest extends BaseInterpretingTest {
       temp.add(nested);
       temp = nested;
     }
-    try {
-      filter.filter(original, interpreter);
-    } catch (Exception e) {
-      assertThat(e).isInstanceOf(OutputTooBigException.class);
-    }
+    assertThatThrownBy(() -> filter.filter(original, interpreter))
+      .isInstanceOf(OutputTooBigException.class);
   }
 }

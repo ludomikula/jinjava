@@ -1,5 +1,6 @@
 package com.hubspot.jinjava.interpret;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -41,6 +42,15 @@ public final class NullValue {
 
   public static NullValue instance() {
     return INSTANCE;
+  }
+
+  /**
+   * Read by both Jackson 2 and Jackson 3, which ignores the Jackson 2 databind
+   * annotation on this class: serializes this marker as JSON <code>null</code>.
+   */
+  @JsonValue
+  public Object toJsonValue() {
+    return null;
   }
 
   @Override

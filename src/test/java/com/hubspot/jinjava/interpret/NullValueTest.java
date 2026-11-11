@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
+import tools.jackson.databind.json.JsonMapper;
 
 public class NullValueTest {
 
@@ -19,5 +20,16 @@ public class NullValueTest {
     assertThat(evaluated).isNotNull();
     assertThat(new ObjectMapper().writeValueAsString(expression))
       .isEqualTo("{\"test\":\"hello\",\"test2\":null}");
+  }
+
+  @Test
+  public void itSerializesAsNullWithJackson3() {
+    assertThat(
+      JsonMapper
+        .builder()
+        .build()
+        .writeValueAsString(ImmutableMap.of("test2", NullValue.instance()))
+    )
+      .isEqualTo("{\"test2\":null}");
   }
 }

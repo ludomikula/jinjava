@@ -39,8 +39,9 @@ public class ToJsonFilter implements Filter {
         return interpreter.getConfig().getObjectMapper().writeValueAsString(var);
       }
     } catch (IOException e) {
-      if (e.getCause() instanceof DeferredValueException) {
-        throw (DeferredValueException) e.getCause();
+      Throwable cause = PyishObjectMapper.stripJacksonWrappers(e.getCause());
+      if (cause instanceof DeferredValueException) {
+        throw (DeferredValueException) cause;
       }
       PyishObjectMapper.handleLengthLimitingException(e);
       throw new InvalidInputException(interpreter, this, InvalidReason.JSON_WRITE);

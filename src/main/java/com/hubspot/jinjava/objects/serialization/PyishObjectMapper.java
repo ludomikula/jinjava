@@ -28,6 +28,7 @@ public class PyishObjectMapper {
   public static final ObjectWriter PYISH_OBJECT_WRITER;
   public static final ObjectWriter SNAKE_CASE_PYISH_OBJECT_WRITER;
   public static final String ALLOW_SNAKE_CASE_ATTRIBUTE = "allowSnakeCase";
+  private static final int MAX_WRAPPER_DEPTH = 16;
 
   static {
     PYISH_OBJECT_WRITER =
@@ -80,21 +81,19 @@ public class PyishObjectMapper {
     }
   }
 
-  private static void handleDeferredValueException(IOException e) {
-    Throwable unwrapped = e;
-    if (e instanceof JsonMappingException) {
-      unwrapped = unwrapped.getCause();
-    }
+  private static void handleDeferredValueException(Throwable e) {
+    Throwable unwrapped = stripJacksonWrappers(e);
     if (unwrapped instanceof DeferredValueException) {
       throw (DeferredValueException) unwrapped;
     }
   }
 
   public static void handleLengthLimitingException(IOException e) {
-    Throwable unwrapped = e;
-    if (e instanceof JsonMappingException) {
-      unwrapped = unwrapped.getCause();
-    }
+    handleLengthLimitingException((Throwable) e);
+  }
+
+  public static void handleLengthLimitingException(Throwable e) {
+    Throwable unwrapped = stripJacksonWrappers(e);
     if (unwrapped instanceof LengthLimitingJsonProcessingException) {
       throw new OutputTooBigException(
         ((LengthLimitingJsonProcessingException) unwrapped).getMaxSize(),
@@ -103,6 +102,29 @@ public class PyishObjectMapper {
     } else if (unwrapped instanceof OutputTooBigException) {
       throw (OutputTooBigException) unwrapped;
     }
+  }
+
+  /**
+   * Steps to the cause while the current throwable is a Jackson wrapper (only
+   * Jackson 2's {@link JsonMappingException} for now) and returns the first
+   * throwable that is not one, so that a wrapper layer added by Jackson does not hide
+   * the exception thrown by a serializer. It stops at any other throwable, for example
+   * a {@link RuntimeException} wrapping the exception of interest, and gives up after
+   * {@link #MAX_WRAPPER_DEPTH} steps, returning the throwable reached then.
+   * It does not walk the whole cause chain.
+   * @param candidate throwable to start from, may be null
+   * @return the first non-wrapper throwable, or null if the wrappers have no cause
+   */
+  public static Throwable stripJacksonWrappers(Throwable candidate) {
+    Throwable current = candidate;
+    for (int i = 0; i < MAX_WRAPPER_DEPTH && isJacksonWrapper(current); i++) {
+      current = current.getCause();
+    }
+    return current;
+  }
+
+  private static boolean isJacksonWrapper(Throwable throwable) {
+    return throwable instanceof JsonMappingException;
   }
 
   public static String getAsPyishStringOrThrow(Object val) throws IOException {

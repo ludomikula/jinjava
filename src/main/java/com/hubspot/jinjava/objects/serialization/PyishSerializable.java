@@ -75,8 +75,9 @@ public interface PyishSerializable extends PyWrapper {
     try {
       return SELF_WRITER.writeValueAsString(value);
     } catch (JsonProcessingException e) {
-      if (e.getCause() instanceof DeferredValueException) {
-        throw (DeferredValueException) e.getCause();
+      Throwable cause = PyishObjectMapper.stripJacksonWrappers(e.getCause());
+      if (cause instanceof DeferredValueException) {
+        throw (DeferredValueException) cause;
       }
       return '\'' + Objects.toString(value) + '\'';
     }
