@@ -1,10 +1,10 @@
 package com.hubspot.jinjava.objects.serialization;
 
-import com.fasterxml.jackson.core.SerializableString;
-import com.fasterxml.jackson.core.io.CharacterEscapes;
-import com.fasterxml.jackson.core.io.SerializedString;
 import com.google.common.annotations.Beta;
 import java.util.Arrays;
+import tools.jackson.core.SerializableString;
+import tools.jackson.core.io.CharacterEscapes;
+import tools.jackson.core.io.SerializedString;
 
 @Beta
 public class PyishCharacterEscapes extends CharacterEscapes {

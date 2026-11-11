@@ -1,17 +1,16 @@
 package com.hubspot.jinjava.objects.serialization;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.google.common.annotations.Beta;
 import java.io.CharArrayWriter;
-import java.io.IOException;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.ObjectWriter;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ValueSerializer;
 
 @Beta
-public class MapEntrySerializer extends JsonSerializer<Entry<?, ?>> {
+public class MapEntrySerializer extends ValueSerializer<Entry<?, ?>> {
 
   public static final MapEntrySerializer INSTANCE = new MapEntrySerializer();
 
@@ -21,16 +20,16 @@ public class MapEntrySerializer extends JsonSerializer<Entry<?, ?>> {
   public void serialize(
     Entry<?, ?> entry,
     JsonGenerator jsonGenerator,
-    SerializerProvider serializerProvider
-  ) throws IOException {
-    AtomicInteger remainingLength = (AtomicInteger) serializerProvider.getAttribute(
+    SerializationContext serializationContext
+  ) {
+    AtomicInteger remainingLength = (AtomicInteger) serializationContext.getAttribute(
       LengthLimitingWriter.REMAINING_LENGTH_ATTRIBUTE
     );
     String key;
     String value;
     ObjectWriter objectWriter = PyishObjectMapper.PYISH_OBJECT_WRITER.withAttribute(
       PyishObjectMapper.ALLOW_SNAKE_CASE_ATTRIBUTE,
-      serializerProvider.getAttribute(PyishObjectMapper.ALLOW_SNAKE_CASE_ATTRIBUTE)
+      serializationContext.getAttribute(PyishObjectMapper.ALLOW_SNAKE_CASE_ATTRIBUTE)
     );
     if (remainingLength != null) {
       objectWriter =

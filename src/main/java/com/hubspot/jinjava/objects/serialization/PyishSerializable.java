@@ -1,12 +1,5 @@
 package com.hubspot.jinjava.objects.serialization;
 
-import com.fasterxml.jackson.core.JsonFactoryBuilder;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.google.common.annotations.Beta;
 import com.hubspot.jinjava.interpret.DeferredValueException;
 import com.hubspot.jinjava.objects.PyWrapper;
@@ -14,19 +7,21 @@ import com.hubspot.jinjava.util.LengthLimitingStringBuilder;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.exc.JacksonIOException;
+import tools.jackson.databind.ObjectWriter;
+import tools.jackson.databind.SerializationContext;
 
 @Beta
 public interface PyishSerializable extends PyWrapper {
-  ObjectWriter SELF_WRITER = new ObjectMapper(
-    new JsonFactoryBuilder().quoteChar('\'').build()
-  )
-    .registerModule(new Jdk8Module())
-    .writer(PyishPrettyPrinter.INSTANCE)
-    .with(PyishCharacterEscapes.INSTANCE);
+  ObjectWriter SELF_WRITER = PyishObjectMapper.pyishWriter(
+    PyishObjectMapper.pyishMapperBuilder().build()
+  );
 
   /**
    * Allows for a class to append the custom string representation in Jinjava.
-   * This method will be used by {@link #writePyishSelf(JsonGenerator, SerializerProvider)}
+   * This method will be used by {@link #writePyishSelf(JsonGenerator, SerializationContext)}
    * to specify what will be written to the json generator.
    * <p>
    * @param appendable Appendable to append the pyish string representation to.
@@ -45,24 +40,32 @@ public interface PyishSerializable extends PyWrapper {
    * If the object's serialization can be broken up into multiple jsonGenerator writes,
    * then this method can be overridden to do so instead of a single call to
    * {@link JsonGenerator#writeRawValue(String)}.
+   * <p>
+   * Jackson 3 methods do not declare {@link IOException}, so the default implementation reports
+   * the {@link IOException} of {@link #appendPyishString(Appendable)} as a
+   * {@link JacksonIOException}.
    * @param jsonGenerator The JsonGenerator to write to.
-   * @param serializerProvider Provides default value serialization and attributes stored on the ObjectWriter if needed.
+   * @param serializationContext Provides default value serialization and attributes stored on the ObjectWriter if needed.
    */
   default void writePyishSelf(
     JsonGenerator jsonGenerator,
-    SerializerProvider serializerProvider
-  ) throws IOException {
-    AtomicInteger remainingLength = (AtomicInteger) serializerProvider.getAttribute(
+    SerializationContext serializationContext
+  ) {
+    AtomicInteger remainingLength = (AtomicInteger) serializationContext.getAttribute(
       LengthLimitingWriter.REMAINING_LENGTH_ATTRIBUTE
     );
-    jsonGenerator.writeRawValue(
-      appendPyishString(
-        remainingLength == null
-          ? new StringBuilder()
-          : new LengthLimitingStringBuilder(remainingLength.get())
-      )
-        .toString()
-    );
+    try {
+      jsonGenerator.writeRawValue(
+        appendPyishString(
+          remainingLength == null
+            ? new StringBuilder()
+            : new LengthLimitingStringBuilder(remainingLength.get())
+        )
+          .toString()
+      );
+    } catch (IOException e) {
+      throw JacksonIOException.construct(e);
+    }
   }
 
   /**
@@ -74,8 +77,8 @@ public interface PyishSerializable extends PyWrapper {
   static String writeValueAsString(Object value) {
     try {
       return SELF_WRITER.writeValueAsString(value);
-    } catch (JsonProcessingException e) {
-      Throwable cause = PyishObjectMapper.stripJacksonWrappers(e.getCause());
+    } catch (JacksonException e) {
+      Throwable cause = PyishObjectMapper.stripJacksonWrappers(e);
       if (cause instanceof DeferredValueException) {
         throw (DeferredValueException) cause;
       }

@@ -1,34 +1,31 @@
 package com.hubspot.jinjava.objects.serialization;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.hubspot.jinjava.lib.filter.AllowSnakeCaseFilter;
-import java.io.IOException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ValueSerializer;
 
-public class BothCasingBeanSerializer<T> extends JsonSerializer<T> {
+public class BothCasingBeanSerializer<T> extends ValueSerializer<T> {
 
-  private final JsonSerializer<T> orignalSerializer;
+  private final ValueSerializer<T> orignalSerializer;
 
-  private BothCasingBeanSerializer(JsonSerializer<T> jsonSerializer) {
-    this.orignalSerializer = jsonSerializer;
+  private BothCasingBeanSerializer(ValueSerializer<T> serializer) {
+    this.orignalSerializer = serializer;
   }
 
-  public static <T> BothCasingBeanSerializer<T> wrapping(
-    JsonSerializer<T> jsonSerializer
-  ) {
-    return new BothCasingBeanSerializer<>(jsonSerializer);
+  public static <T> BothCasingBeanSerializer<T> wrapping(ValueSerializer<T> serializer) {
+    return new BothCasingBeanSerializer<>(serializer);
   }
 
   @Override
   public void serialize(
     T value,
     JsonGenerator gen,
-    SerializerProvider serializerProvider
-  ) throws IOException {
+    SerializationContext serializationContext
+  ) {
     if (
       Boolean.TRUE.equals(
-        serializerProvider.getAttribute(PyishObjectMapper.ALLOW_SNAKE_CASE_ATTRIBUTE)
+        serializationContext.getAttribute(PyishObjectMapper.ALLOW_SNAKE_CASE_ATTRIBUTE)
       )
     ) {
       // if it's directly for output, then we don't want to add the additional filter characters,
@@ -40,7 +37,7 @@ public class BothCasingBeanSerializer<T> extends JsonSerializer<T> {
         .append(AllowSnakeCaseFilter.NAME);
       gen.writeRawValue(sb.toString());
     } else {
-      orignalSerializer.serialize(value, gen, serializerProvider);
+      orignalSerializer.serialize(value, gen, serializationContext);
     }
   }
 }

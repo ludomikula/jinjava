@@ -1,15 +1,5 @@
 package com.hubspot.jinjava.objects.serialization;
 
-import com.fasterxml.jackson.core.JsonFactoryBuilder;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.google.common.annotations.Beta;
 import com.hubspot.jinjava.interpret.DeferredValueException;
 import com.hubspot.jinjava.interpret.JinjavaInterpreter;
@@ -22,6 +12,13 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.ObjectWriter;
+import tools.jackson.databind.PropertyNamingStrategies;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ValueSerializer;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.module.SimpleModule;
 
 @Beta
 public class PyishObjectMapper {
@@ -32,30 +29,43 @@ public class PyishObjectMapper {
   private static final int MAX_WRAPPER_DEPTH = 16;
 
   static {
-    PYISH_OBJECT_WRITER =
-      getPyishObjectMapper()
-        .writer(PyishPrettyPrinter.INSTANCE)
-        .with(PyishCharacterEscapes.INSTANCE);
-
-    SNAKE_CASE_PYISH_OBJECT_WRITER =
-      getPyishObjectMapper()
-        .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
-        .writer(PyishPrettyPrinter.INSTANCE)
-        .with(PyishCharacterEscapes.INSTANCE);
+    PYISH_OBJECT_WRITER = pyishWriter(getPyishObjectMapper(false));
+    SNAKE_CASE_PYISH_OBJECT_WRITER = pyishWriter(getPyishObjectMapper(true));
   }
 
-  private static ObjectMapper getPyishObjectMapper() {
-    ObjectMapper mapper = new ObjectMapper(
-      new JsonFactoryBuilder().quoteChar('\'').build()
-    )
-      .registerModule(new Jdk8Module())
-      .registerModule(
+  /**
+   * A mapper builder for the pyish string form with Jackson 2's output, see
+   * {@link Jackson2ParitySettings}: single quotes around strings, and no module registered
+   * for {@link PyishSerializable}, so that a {@link PyishSerializable} is written like a bean.
+   */
+  static JsonMapper.Builder pyishMapperBuilder() {
+    return Jackson2ParitySettings.applyTo(
+      JsonMapper
+        .builder(Jackson2ParitySettings.jsonFactoryBuilder().quoteChar('\'').build())
+        .configureForJackson2()
+    );
+  }
+
+  /** A writer of the mapper with the pyish pretty printer and character escapes. */
+  static ObjectWriter pyishWriter(JsonMapper mapper) {
+    return mapper
+      .writer()
+      .with(PyishPrettyPrinter.INSTANCE)
+      .with(PyishCharacterEscapes.INSTANCE);
+  }
+
+  private static JsonMapper getPyishObjectMapper(boolean snakeCase) {
+    JsonMapper.Builder builder = pyishMapperBuilder()
+      .addModule(
         new SimpleModule()
           .setSerializerModifier(PyishBeanSerializerModifier.INSTANCE)
           .addSerializer(PyishSerializable.class, PyishSerializer.INSTANCE)
+          .setDefaultNullKeySerializer(new NullKeySerializer())
       );
-    mapper.getSerializerProvider().setNullKeySerializer(new NullKeySerializer());
-    return mapper;
+    if (snakeCase) {
+      builder.propertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+    }
+    return builder.build();
   }
 
   public static String getAsUnquotedPyishString(Object val) {
@@ -76,8 +86,10 @@ public class PyishObjectMapper {
     try {
       return getAsPyishStringOrThrow(val, forOutput);
     } catch (IOException e) {
-      handleLengthLimitingException(e);
-      handleDeferredValueException(e);
+      // getAsPyishStringOrThrow adds this outer IOException around what was thrown
+      Throwable failure = e.getCause();
+      handleLengthLimitingException(failure);
+      handleDeferredValueException(failure);
       return Objects.toString(val, "");
     }
   }
@@ -106,9 +118,9 @@ public class PyishObjectMapper {
   }
 
   /**
-   * Steps to the cause while the current throwable is a Jackson wrapper (Jackson 2's
-   * {@link JsonMappingException} and every Jackson 3 {@link JacksonException}, for example
-   * {@code DatabindException} and {@code JacksonIOException}) and returns the first
+   * Steps to the cause while the current throwable is a Jackson wrapper (every
+   * {@link JacksonException}, for example {@code DatabindException} and
+   * {@code JacksonIOException}) and returns the first
    * throwable that is not one, so that a wrapper layer added by Jackson does not hide
    * the exception thrown by a serializer. It stops at any other throwable, for example
    * a {@link RuntimeException} wrapping the exception of interest, and gives up after
@@ -126,15 +138,20 @@ public class PyishObjectMapper {
   }
 
   private static boolean isJacksonWrapper(Throwable throwable) {
-    return (
-      throwable instanceof JsonMappingException || throwable instanceof JacksonException
-    );
+    return throwable instanceof JacksonException;
   }
 
   public static String getAsPyishStringOrThrow(Object val) throws IOException {
     return getAsPyishStringOrThrow(val, false);
   }
 
+  /**
+   * Any failure is reported as an {@link IOException} whose cause is what Jackson, or a
+   * serializer, threw: Jackson 3 throws unchecked exceptions, and a
+   * {@link DeferredValueException} or {@link OutputTooBigException} thrown by a root serializer
+   * is not wrapped by Jackson at all. The callers of this method catch {@link IOException}.
+   * The wrappers below that outermost exception are unwrapped by {@link #stripJacksonWrappers}.
+   */
   public static String getAsPyishStringOrThrow(Object val, boolean forOutput)
     throws IOException {
     boolean useSnakeCaseMappingOverride = JinjavaInterpreter
@@ -167,20 +184,24 @@ public class PyishObjectMapper {
     if (!useSnakeCaseMappingOverride) {
       objectWriter = objectWriter.withAttribute(ALLOW_SNAKE_CASE_ATTRIBUTE, !forOutput);
     }
-    objectWriter.writeValue(writer, val);
+    try {
+      objectWriter.writeValue(writer, val);
+    } catch (RuntimeException e) {
+      throw new IOException(e.getMessage(), e);
+    }
 
     return writer.toString();
   }
 
-  public static class NullKeySerializer extends JsonSerializer<Object> {
+  public static class NullKeySerializer extends ValueSerializer<Object> {
 
     @Override
     public void serialize(
       Object o,
       JsonGenerator jsonGenerator,
-      SerializerProvider serializerProvider
-    ) throws IOException {
-      jsonGenerator.writeFieldName("");
+      SerializationContext serializationContext
+    ) {
+      jsonGenerator.writeName("");
     }
   }
 }
