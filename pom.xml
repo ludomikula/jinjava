@@ -25,6 +25,8 @@
     <dep.mockito.version>5.20.0</dep.mockito.version>
     <dep.jackson.version>2.20.1</dep.jackson.version>
     <dep.jackson3.version>3.1.8</dep.jackson3.version>
+    <dep.snakeyaml.version>2.4</dep.snakeyaml.version>
+    <dep.snakeyaml-engine.version>3.0.1</dep.snakeyaml-engine.version>
 
     <basepom.test.add.opens>
       --add-opens=java.base/java.lang=ALL-UNNAMED
@@ -89,6 +91,16 @@
         <groupId>tools.jackson.dataformat</groupId>
         <artifactId>jackson-dataformat-yaml</artifactId>
         <version>${dep.jackson3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>${dep.snakeyaml.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.snakeyaml</groupId>
+        <artifactId>snakeyaml-engine</artifactId>
+        <version>${dep.snakeyaml-engine.version}</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -200,6 +212,18 @@
     <dependency>
       <groupId>tools.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>tools.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.snakeyaml</groupId>
+      <artifactId>snakeyaml-engine</artifactId>
     </dependency>
     <dependency>
       <groupId>ch.obermuhlner</groupId>

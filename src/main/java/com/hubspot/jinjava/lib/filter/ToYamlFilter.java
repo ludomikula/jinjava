@@ -1,14 +1,14 @@
 package com.hubspot.jinjava.lib.filter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
-import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.hubspot.jinjava.doc.annotations.JinjavaDoc;
 import com.hubspot.jinjava.doc.annotations.JinjavaParam;
 import com.hubspot.jinjava.doc.annotations.JinjavaSnippet;
 import com.hubspot.jinjava.interpret.InvalidInputException;
 import com.hubspot.jinjava.interpret.InvalidReason;
 import com.hubspot.jinjava.interpret.JinjavaInterpreter;
+import com.hubspot.jinjava.lib.filter.yaml.ToYamlWriter;
+import com.hubspot.jinjava.lib.filter.yaml.YamlReemitException;
+import tools.jackson.core.JacksonException;
 
 @JinjavaDoc(
   value = "Writes object as a YAML string",
@@ -21,14 +21,13 @@ import com.hubspot.jinjava.interpret.JinjavaInterpreter;
 )
 public class ToYamlFilter implements Filter {
 
-  private static final YAMLMapper OBJECT_MAPPER = new YAMLMapper()
-    .disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER);
+  private static final ToYamlWriter YAML_WRITER = new ToYamlWriter();
 
   @Override
   public Object filter(Object var, JinjavaInterpreter interpreter, String... args) {
     try {
-      return OBJECT_MAPPER.writeValueAsString(var);
-    } catch (JsonProcessingException e) {
+      return YAML_WRITER.write(var);
+    } catch (JacksonException | YamlReemitException e) {
       throw new InvalidInputException(interpreter, this, InvalidReason.JSON_WRITE);
     }
   }

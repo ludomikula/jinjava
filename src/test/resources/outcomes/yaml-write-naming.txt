@@ -1,0 +1,14 @@
+getURL	OK url: "u"\n
+getXValue	OK xvalue: 1\n
+getURLValue+getIPAddress	OK urlvalue: 2\nipaddress: "ip"\n
+isActive	OK active: true\n
+getA	OK a: 1\n
+getaB	OK aB: 1\n
+getABC	OK abc: 1\n
+public fields Name/fooBar/URL	OK Name: "n"\nfooBar: 2\nURL: "x"\n
+@JsonProperty-renamed getter	OK plain: 1\nrenamed: "r"\n
+8-property bean	OK id: 7\nurl: "u"\nzulu: "z"\nalpha: 1\nmid: true\ntagList:\n- "a"\n- "b"\nxvalue: 1.5\naB: "ab"\n
+bean in map	OK b:\n  url: "u"\n
+bean in list	OK - xvalue: 1\n- url: "u"\n
+holder (nested bean + list of beans)	OK urlBean:\n  url: "u"\nitems:\n- xvalue: 1\n- xvalue: 1\n
+bean with LS/NEL values	OK url: "a\\Lb"\nxvalue: "\\N"\n
