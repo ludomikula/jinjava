@@ -78,6 +78,20 @@ public class ValidatorConfigBannedConstructsTest {
   }
 
   @Test
+  public void itRejectsJackson3ObjectMapperInAllowedDeclaredMethodClassNames() {
+    assertThatThrownBy(() ->
+        MethodValidatorConfig
+          .builder()
+          .addAllowedDeclaredMethodsFromCanonicalClassNames(
+            tools.jackson.databind.ObjectMapper.class.getCanonicalName()
+          )
+          .build()
+      )
+      .isInstanceOf(IllegalStateException.class)
+      .hasMessageContaining("Banned classes or prefixes");
+  }
+
+  @Test
   public void itRejectsJinjavaInterpreterInAllowedDeclaredMethodClassNames() {
     assertThatThrownBy(() ->
         MethodValidatorConfig
@@ -114,6 +128,20 @@ public class ValidatorConfigBannedConstructsTest {
           .builder()
           .addAllowedDeclaredMethodsFromCanonicalClassPrefixes(
             ObjectMapper.class.getPackageName()
+          )
+          .build()
+      )
+      .isInstanceOf(IllegalStateException.class)
+      .hasMessageContaining("Banned classes or prefixes");
+  }
+
+  @Test
+  public void itRejectsJackson3DatabindPackageInAllowedDeclaredMethodPrefixes() {
+    assertThatThrownBy(() ->
+        MethodValidatorConfig
+          .builder()
+          .addAllowedDeclaredMethodsFromCanonicalClassPrefixes(
+            tools.jackson.databind.ObjectMapper.class.getPackageName()
           )
           .build()
       )
@@ -188,6 +216,20 @@ public class ValidatorConfigBannedConstructsTest {
   }
 
   @Test
+  public void itRejectsJackson3ObjectMapperInAllowedReturnTypeClassNames() {
+    assertThatThrownBy(() ->
+        ReturnTypeValidatorConfig
+          .builder()
+          .addAllowedCanonicalClassNames(
+            tools.jackson.databind.ObjectMapper.class.getCanonicalName()
+          )
+          .build()
+      )
+      .isInstanceOf(IllegalStateException.class)
+      .hasMessageContaining("Banned classes or prefixes");
+  }
+
+  @Test
   public void itRejectsJinjavaInterpreterInAllowedReturnTypeClassNames() {
     assertThatThrownBy(() ->
         ReturnTypeValidatorConfig
@@ -219,6 +261,20 @@ public class ValidatorConfigBannedConstructsTest {
         ReturnTypeValidatorConfig
           .builder()
           .addAllowedCanonicalClassPrefixes(ObjectMapper.class.getPackageName())
+          .build()
+      )
+      .isInstanceOf(IllegalStateException.class)
+      .hasMessageContaining("Banned classes or prefixes");
+  }
+
+  @Test
+  public void itRejectsJackson3DatabindPackageInAllowedReturnTypePrefixes() {
+    assertThatThrownBy(() ->
+        ReturnTypeValidatorConfig
+          .builder()
+          .addAllowedCanonicalClassPrefixes(
+            tools.jackson.databind.ObjectMapper.class.getPackageName()
+          )
           .build()
       )
       .isInstanceOf(IllegalStateException.class)

@@ -1,6 +1,5 @@
 package com.hubspot.jinjava.el.ext;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableSet;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -13,14 +12,19 @@ public class BannedAllowlistOptions {
   // These aren't required, but they prevent someone from misconfiguring Jinjava to allow sandbox bypass unintentionally
   private static final String JAVA_LANG_REFLECT_PACKAGE =
     Method.class.getPackage().getName(); // java.lang.reflect
+  // The Jackson 2 package stays banned for good: Jackson 2 databind remains on the classpath
+  // through other dependencies even after jinjava itself no longer uses it.
   private static final String JACKSON_DATABIND_PACKAGE =
-    ObjectMapper.class.getPackage().getName(); // com.fasterxml.jackson.databind
+    com.fasterxml.jackson.databind.ObjectMapper.class.getPackage().getName(); // com.fasterxml.jackson.databind
+  private static final String JACKSON3_DATABIND_PACKAGE =
+    tools.jackson.databind.ObjectMapper.class.getPackage().getName(); // tools.jackson.databind
 
   private static final String[] BANNED_PREFIXES = {
     Class.class.getCanonicalName(),
     Object.class.getCanonicalName(),
     JAVA_LANG_REFLECT_PACKAGE,
     JACKSON_DATABIND_PACKAGE,
+    JACKSON3_DATABIND_PACKAGE,
   };
 
   private static final Set<String> ALLOWED_JINJAVA_PREFIXES = Stream

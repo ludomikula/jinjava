@@ -39,7 +39,7 @@ public abstract class MethodValidatorConfig {
     );
     if (!list.isEmpty()) {
       throw new IllegalStateException(
-        "Banned classes or prefixes (Object.class, Class.class, java.lang.reflect, com.fasterxml.jackson.databind) are not allowed: " +
+        "Banned classes or prefixes (Object.class, Class.class, java.lang.reflect, com.fasterxml.jackson.databind, tools.jackson.databind) are not allowed: " +
         list
       );
     }
